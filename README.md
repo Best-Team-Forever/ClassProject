@@ -36,9 +36,9 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-----------|-------------|
 | Use an online tool (e.g., Jira, Miro) to store the product backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/settings/details |
-| Create at least 10 product backlog items | |
-| Express every PBI as a true user story | |
-| Order your product backlog and document the rationale | |
+| Create at least 10 product backlog items | https://docs.google.com/spreadsheets/d/14tpTgQpwwjBQg20ObevaAH9GJ0SzhL3-X1hwWxUjY6Y/edit?usp=sharing |
+| Express every PBI as a true user story | https://docs.google.com/spreadsheets/d/14tpTgQpwwjBQg20ObevaAH9GJ0SzhL3-X1hwWxUjY6Y/edit?usp=sharing |
+| Order your product backlog and document the rationale | https://docs.google.com/spreadsheets/d/14tpTgQpwwjBQg20ObevaAH9GJ0SzhL3-X1hwWxUjY6Y/edit?usp=sharing |
 
 ## Prepare for Sprint Planning
 |Task|Our Submission|
