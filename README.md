@@ -27,14 +27,18 @@ In your repo's README, list your team name and roster with roles
 | Identify at least three stakeholder types | Radiologist; Oncologist; Medical Administrator |
 
 ## Stakeholder Analysis
-Identify a real person as one of your stakeholders
-Construct a detailed user persona for this stakeholder 
+|Task|Evidence|
+|-----------|-------------|
+| Identify a real person as one of your stakeholders | Dr. Emily Carter (Radiologist) |
+| Construct a detailed user persona for this stakeholder | |
 
 ## Create Initial Product Backlog
-Use an online tool (e.g., Jira, Miro) to store the product backlog 
-Create at least 10 product backlog items
-Express every PBI as a true user story 
-Order your product backlog and document the rationale
+|Task|Evidence|
+|-----------|-------------|
+| Use an online tool (e.g., Jira, Miro) to store the product backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/settings/details |
+| Create at least 10 product backlog items | |
+| Express every PBI as a true user story | |
+| Order your product backlog and document the rationale | |
 
 ## Prepare for Sprint Planning
 Create a Definition of Ready (DoR) with at least 5 items
