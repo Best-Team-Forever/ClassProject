@@ -10,7 +10,7 @@
 | Create a public Slack channel for your team | https://agilesoftwarecourse.slack.com/archives/C07AAFWAVJ6 |
 
 In your repo's README, list your team name and roster with roles 
-|Member|Our Submission|
+|Member|Role|
 |-----------|-------------|
 | Jhankar Saxena | Product Owner |
 | Yun Lin (Norah) | Scrum Master |
@@ -44,7 +44,7 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-----------|-------------|
 | Create a Definition of Ready (DoR) with at least 5 items | |
-Estimate PBIs in story points
-Ensure estimation unit is clearly story points in your tool
-Conduct a whole-team relative-size estimating activity
-Ensure only Developers participate in estimating
+| Estimate PBIs in story points | |
+| Ensure estimation unit is clearly story points in your tool | |
+| Conduct a whole-team relative-size estimating activity | |
+| Ensure only Developers participate in estimating | |
