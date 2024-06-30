@@ -29,7 +29,7 @@ In your repo's README, list your team name and roster with roles
 ## Stakeholder Analysis
 |Task|Our Submission|
 |-----------|-------------|
-| Identify a real person as one of your stakeholders | Danielle S. Bitterman |
+| Identify a real person as one of your stakeholders | Danielle S. Bitterman (or staff member) |
 | Construct a detailed user persona for this stakeholder | |
 
 ## Create Initial Product Backlog
