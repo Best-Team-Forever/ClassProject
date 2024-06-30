@@ -43,7 +43,7 @@ In your repo's README, list your team name and roster with roles
 ## Prepare for Sprint Planning
 |Task|Our Submission|
 |-----------|-------------|
-| Create a Definition of Ready (DoR) with at least 5 items | 1. We have a technical design. <br> 2. We have acceptance criteria. <br> 3. Small enough to fit into once sprint. <br> 4. We have an effort assessment. <br> 5. Well-defined user story. <br> 6. Not blocked. |
+| Create a Definition of Ready (DoR) with at least 5 items | 1. We have a technical design. <br> 2. We have acceptance criteria. <br> 3. Small enough to fit into one sprint. <br> 4. We have an effort assessment. <br> 5. Well-defined user story. <br> 6. Not blocked. |
 | Estimate PBIs in story points | https://docs.google.com/spreadsheets/d/14tpTgQpwwjBQg20ObevaAH9GJ0SzhL3-X1hwWxUjY6Y/edit?gid=0#gid=0 |
 | Ensure estimation unit is clearly story points in your tool | https://github.com/Best-Team-Forever/ClassProject/blob/main/storypoint.jpg |
 | Conduct a whole-team relative-size estimating activity | we did planning poker online: screenshot link: https://github.com/Best-Team-Forever/ClassProject/blob/main/estimating%20activity.png |
