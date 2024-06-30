@@ -43,7 +43,7 @@ In your repo's README, list your team name and roster with roles
 ## Prepare for Sprint Planning
 |Task|Our Submission|
 |-----------|-------------|
-| Create a Definition of Ready (DoR) with at least 5 items | 1. We have a technical design. <br> 2. We have acceptance criteria. <br> 3. Small enough to fit into once sprint. <br> 4. We have an effort assessment. <br> 5. |
+| Create a Definition of Ready (DoR) with at least 5 items | 1. We have a technical design. <br> 2. We have acceptance criteria. <br> 3. Small enough to fit into once sprint. <br> 4. We have an effort assessment. <br> 5. Well-defined user story. <br> 6. Not blocked. |
 | Estimate PBIs in story points | |
 | Ensure estimation unit is clearly story points in your tool | |
 | Conduct a whole-team relative-size estimating activity | |
