@@ -2,7 +2,7 @@
 
 ## Form a Scrum Team
 
-|Task|Evidence|
+|Task|Our Submission|
 |-----------|-------------|
 | Self-organize into a team and join a "Project Teams" group in Canvas | https://canvas.harvard.edu/groups/160539/users |
 | Name your team | Best Team Forever |
@@ -10,7 +10,7 @@
 | Create a public Slack channel for your team | https://agilesoftwarecourse.slack.com/archives/C07AAFWAVJ6 |
 
 In your repo's README, list your team name and roster with roles 
-|Member|Role|
+|Member|Our Submission|
 |-----------|-------------|
 | Jhankar Saxena | Product Owner |
 | Yun Lin (Norah) | Scrum Master |
@@ -19,7 +19,7 @@ In your repo's README, list your team name and roster with roles
 | David Rasmussen | Developer |
 
 ## Create a Product Vision
-|Task|Evidence|
+|Task|Our Submission|
 |-----------|-------------|
 | Identify an open-source product to create and name it | DeepScan |
 | Articulate a far vision for the product | Saving lives through early breast cancer detection |
@@ -27,13 +27,13 @@ In your repo's README, list your team name and roster with roles
 | Identify at least three stakeholder types | Radiologist; Oncologist; Medical Administrator |
 
 ## Stakeholder Analysis
-|Task|Evidence|
+|Task|Our Submission|
 |-----------|-------------|
 | Identify a real person as one of your stakeholders | Dr. Emily Carter (Radiologist) |
 | Construct a detailed user persona for this stakeholder | |
 
 ## Create Initial Product Backlog
-|Task|Evidence|
+|Task|Our Submission|
 |-----------|-------------|
 | Use an online tool (e.g., Jira, Miro) to store the product backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/settings/details |
 | Create at least 10 product backlog items | |
@@ -41,7 +41,9 @@ In your repo's README, list your team name and roster with roles
 | Order your product backlog and document the rationale | |
 
 ## Prepare for Sprint Planning
-Create a Definition of Ready (DoR) with at least 5 items
+|Task|Our Submission|
+|-----------|-------------|
+| Create a Definition of Ready (DoR) with at least 5 items | |
 Estimate PBIs in story points
 Ensure estimation unit is clearly story points in your tool
 Conduct a whole-team relative-size estimating activity
