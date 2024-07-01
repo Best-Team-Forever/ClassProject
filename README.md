@@ -53,8 +53,8 @@ In your repo's README, list your team name and roster with roles
 # Project Part 2: First Sprint
 ## Sprint Planning
 |Task|Our Submission|
-|-----------|-------------|
-| Document your sprint forecast and rationale in README | |
+|-------|-------------|
+| Document your sprint forecast and rationale in README | Our first sprint has two stories totalling 13 points. These stories were selected based on how they will satisfy the preconditions of getting our infrastructure set up and getting a user logged in. |
 | Pull appropriate stories into sprint backlog | |
 | Ensure stories are right-sized | |
 | Decompose stories into tasks | |
