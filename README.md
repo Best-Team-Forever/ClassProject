@@ -1,4 +1,4 @@
-# ClassProject
+# Project Part 1: Team Formation and Product Inception
 
 ## Form a Scrum Team
 
@@ -48,3 +48,14 @@ In your repo's README, list your team name and roster with roles
 | Ensure estimation unit is clearly story points in your tool | https://github.com/Best-Team-Forever/ClassProject/blob/main/storypoint.jpg |
 | Conduct a whole-team relative-size estimating activity | we did planning poker online: screenshot link: https://github.com/Best-Team-Forever/ClassProject/blob/main/estimating%20activity.png |
 | Ensure only Developers participate in estimating | Scrummaster enforced the time box on estimating. Product Owner clarified questions. Developers asked questions and used online voting tool. |
+
+
+# Project Part 2: First Sprint
+## Sprint Planning
+|Task|Our Submission|
+|-----------|-------------|
+| Document your sprint forecast and rationale in README | |
+| Pull appropriate stories into sprint backlog | |
+| Ensure stories are right-sized | |
+| Decompose stories into tasks | |
+| Set up a kanban board for sprint backlog | |
