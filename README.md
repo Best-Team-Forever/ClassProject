@@ -54,7 +54,7 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Planning
 |Task|Our Submission|
 |-------|-------------|
-| Document your sprint forecast and rationale in README | Our first sprint has two stories totalling 13 points. These stories were selected based on how they will satisfy the preconditions of getting our infrastructure set up and getting a user logged in. |
+| Document your sprint forecast and rationale in README | Our first sprint has two stories totalling 13 points. These stories were selected based on how they will satisfy the preconditions of getting our infrastructure set up and getting a user logged in. As our first sprint we don't have any prior evidence for how many points we can do in a sprint, so we came to a conservative consensus at 13. |
 | Pull appropriate stories into sprint backlog | |
 | Ensure stories are right-sized | |
 | Decompose stories into tasks | |
