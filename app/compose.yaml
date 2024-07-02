@@ -3,7 +3,9 @@ services:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: bestteamforever
+      - 'MYSQL_PASSWORD=bestteamforever'
+      - 'MYSQL_ROOT_PASSWORD=bestteamforever'
+      - 'MYSQL_USER=deepscan'
     networks:
       - deepscan
     ports:

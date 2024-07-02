@@ -1,4 +1,4 @@
-CREATE SCHEMA `deepscan` ;
+CREATE SCHEMA `deepscan`;
 
 CREATE TABLE `deepscan`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -12,7 +12,7 @@ CREATE TABLE `deepscan`.`user` (
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE
 );
 
-CREATE TABLE `patient` (
+CREATE TABLE `deepscan`.`patient` (
   `id` int NOT NULL AUTO_INCREMENT,
   `external_id` varchar(255) DEFAULT NULL,
   `first_name` varchar(45) NOT NULL,
@@ -27,4 +27,3 @@ CREATE TABLE `patient` (
   UNIQUE KEY `external_id_UNIQUE` (`external_id`),
   CONSTRAINT `fk_patient_user` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
 );
-
