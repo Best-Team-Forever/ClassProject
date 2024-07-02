@@ -30,7 +30,7 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-----------|-------------|
 | Identify a real person as one of your stakeholders | Danielle S. Bitterman (or staff member) |
-| Construct a detailed user persona for this stakeholder | https://github.com/Best-Team-Forever/ClassProject/blob/main/User%20Persona.jpg |
+| Construct a detailed user persona for this stakeholder | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/User%20Persona.jpg |
 
 ## Create Initial Product Backlog
 |Task|Our Submission|
@@ -45,8 +45,8 @@ In your repo's README, list your team name and roster with roles
 |-----------|-------------|
 | Create a Definition of Ready (DoR) with at least 5 items | 1. We have a technical design. <br> 2. We have acceptance criteria. <br> 3. Small enough to fit into one sprint. <br> 4. We have an effort assessment. <br> 5. Well-defined user story. <br> 6. Not blocked. |
 | Estimate PBIs in story points | https://docs.google.com/spreadsheets/d/14tpTgQpwwjBQg20ObevaAH9GJ0SzhL3-X1hwWxUjY6Y/edit?gid=0#gid=0 |
-| Ensure estimation unit is clearly story points in your tool | https://github.com/Best-Team-Forever/ClassProject/blob/main/storypoint.jpg |
-| Conduct a whole-team relative-size estimating activity | we did planning poker online: screenshot link: https://github.com/Best-Team-Forever/ClassProject/blob/main/estimating%20activity.png |
+| Ensure estimation unit is clearly story points in your tool | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/storypoint.jpg |
+| Conduct a whole-team relative-size estimating activity | we did planning poker online: screenshot link: https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/estimating%20activity.png |
 | Ensure only Developers participate in estimating | Scrummaster enforced the time box on estimating. Product Owner clarified questions. Developers asked questions and used online voting tool. |
 
 
@@ -55,7 +55,7 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-------|-------------|
 | Document your sprint forecast and rationale in README | Our first sprint has two stories totalling 13 points. These stories were selected based on how they will satisfy the preconditions of getting our infrastructure set up and getting a user logged in. As our first sprint we don't have any prior evidence for how many points we can do in a sprint, so we came to a conservative consensus at 13. |
-| Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/SprintBacklog.jpg |
+| Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/SprintBacklog.jpg |
 | Ensure stories are right-sized | Based on our estimating activity we believe our first two stories of 8 and 5 will be correct for our team. |
-| Decompose stories into tasks | We put our tasks in the story description. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/storySubTasks.jpg |
-| Set up a kanban board for sprint backlog | We are using Jira for the kanban board. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/kanban.jpg |
+| Decompose stories into tasks | We put our tasks in the story description. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/storySubTasks.jpg |
+| Set up a kanban board for sprint backlog | We are using Jira for the kanban board. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/kanban.jpg |

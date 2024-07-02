@@ -1,0 +1,15 @@
+services:
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: bestteamforever
+    networks:
+      - deepscan
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./database/schema.sql:/docker-entrypoint-initdb.d/script_1.sql"
+
+networks:
+  deepscan: {}
