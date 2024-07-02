@@ -13,29 +13,29 @@ public class Patient {
 
     @Id
     private Integer id;
-    @Id(name = "external_id")
-    private String external_id;
+    @Column(name = "external_id")
+    private String externalId;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
     @DateTimeFormat
-    private Date date_of_birth;
+    private Date dateOfBirth;
     @Column(name = "gender")
     private String gender;
     @Column(name = "image_path")
-    private String image_path;
+    private String imagePath;
     @Column(name = "ai_score")
-    private double ai_score;
+    private double aiScore;
     @Column(name = "creation_user")
-    private int creation_user;
+    private int creationUser;
 
     public Integer getId() {
         return id;
     }
 
     public String getExternalId(){
-        return external_id;
+        return externalId;
     }
 
     public String getFirstName() {
@@ -47,7 +47,7 @@ public class Patient {
     }
 
     public Date getBirthDate(){
-        return date_of_birth;
+        return dateOfBirth;
     }
 
     public String getGender(){
@@ -55,15 +55,15 @@ public class Patient {
     }
 
     public String getImagePath(){
-        return image_path;
+        return imagePath;
     }
 
     public double getScore(){
-        return ai_score;
+        return aiScore;
     }
 
     public int getCreationUser(){
-        return creation_user;
+        return creationUser;
     }
 
     public void setId(Integer id) {
@@ -71,7 +71,7 @@ public class Patient {
     }
 
     public void setExternalId(String externalId){
-        this.external_id = externalId;
+        this.externalId = externalId;
     }
 
     public void setFirstName(String firstName) {
@@ -83,7 +83,7 @@ public class Patient {
     }
 
     public void setBirthDate(Date date){
-        this.date_of_birth = date;
+        this.dateOfBirth = date;
     }
 
     public void setGender(String gender){
@@ -91,15 +91,15 @@ public class Patient {
     }
 
     public void setImagePath(String imagepath){
-        this.image_path = imagepath;
+        this.imagePath = imagepath;
     }
 
     public void setScore(double score){
-        this.ai_score = score;
+        this.aiScore = score;
     }
 
     public void setCreationUser(int creation_user){
-        this.creation_user = creation_user;
+        this.creationUser = creation_user;
     }
 
 }

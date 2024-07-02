@@ -12,6 +12,9 @@ public class Authentication {
 
     @PostMapping("/authenticate")
     public AccessToken authenticate(){
+
+        userRepository.findByUsername("radiologist");
+
         return new AccessToken("Dummy Access Token");
     }
 
