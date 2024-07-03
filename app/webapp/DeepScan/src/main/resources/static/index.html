@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepScan File Upload</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to DeepScan</h1>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Choose file to upload:</label>
+                <input type="file" id="file" name="file" accept="image/*" onchange="previewImage(event)" class="custom-button">
+            </div>
+            <br>
+            <input type="submit" value="Upload" class="custom-button">
+        </form>
+        <div id="imagePreviewContainer" style="display:none;">
+            <h2>Image Preview:</h2>
+            <img id="imagePreview" src="" alt="Image Preview" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function() {
+                const preview = document.getElementById('imagePreview');
+                preview.src = reader.result;
+                document.getElementById('imagePreviewContainer').style.display = 'block';
+            };
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
+
