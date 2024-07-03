@@ -1,17 +1,37 @@
 services:
-  database:
-    image: mysql
-    restart: always
+#  database:
+#    image: mysql
+#    restart: always
+#    environment:
+#      - 'MYSQL_PASSWORD=bestteamforever'
+#      - 'MYSQL_ROOT_PASSWORD=bestteamforever'
+#      - 'MYSQL_USER=deepscan'
+#    networks:
+#      - deepscan
+#    ports:
+#      - "3306:3306"
+#    volumes:
+#      - "./database/schema.sql:/docker-entrypoint-initdb.d/script_1.sql"
+#      - "./database/data.sql:/docker-entrypoint-initdb.d/script_2.sql"
+  tensorflow:
+    image: tensorflow/serving
+    platform: linux/amd64
+    ports:
+      - "8501:8501"
+    volumes:
+      - "./ai_model:/models/deepscan"
     environment:
-      - 'MYSQL_PASSWORD=bestteamforever'
-      - 'MYSQL_ROOT_PASSWORD=bestteamforever'
-      - 'MYSQL_USER=deepscan'
+      - 'MODEL_NAME=deepscan'
+      - 'MODEL_BASE_PATH=/models'
     networks:
       - deepscan
+  webapp:
+    build:
+      dockerfile: webapp/Dockerfile
     ports:
-      - "3306:3306"
-    volumes:
-      - "./database/schema.sql:/docker-entrypoint-initdb.d/script_1.sql"
+      - "8080:8080"
+    networks:
+      - deepscan
 
 networks:
   deepscan: {}
