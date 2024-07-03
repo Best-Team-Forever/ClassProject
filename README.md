@@ -65,3 +65,25 @@ In your repo's README, list your team name and roster with roles
 |-------|-------------|
 | Create and maintain a sprint burndown chart |   |
 | Conduct Daily Scrums | https://docs.google.com/document/d/1PnFJ7Ecqouzknsl-8pD64gc-ylrqneiOpCpEJkxdoh4/edit?usp=sharing |
+| Update task board and burndown chart daily |   |
+| Provide evidence of pair/mob programming |   |
+
+## Test-Driven Development
+|Task|Our Submission|
+| Implement at least 10 passing unit tests |   |
+
+## Sprint Review
+|Task|Our Submission|
+| Demonstrate working software on public system |   |
+| Involve at least one stakeholder and gather feedback |   |
+| Conduct the review |   |
+
+## Sprint Retrospective
+|Task|Our Submission|
+| Identify improvement action |   |
+| Create PBI for the action |   |
+| Prioritize the new PBI in the product backlog |   |
+
+## Product Backlog Refinement 
+|Task|Our Submission|
+| Ensure all PBIs are true user stories |   |
