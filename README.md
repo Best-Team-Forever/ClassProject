@@ -65,8 +65,8 @@ In your repo's README, list your team name and roster with roles
 |-------|-------------|
 | Create and maintain a sprint burndown chart | https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?usp=sharing |
 | Conduct Daily Scrums | https://docs.google.com/document/d/1Ckz4NUfNv54GQvDLD_mGniID9CmJHE9cT15EM4mn3zE/edit?usp=sharing |
-| Update task board and burndown chart daily |   |
-| Provide evidence of pair/mob programming |   |
+| Update task board and burndown chart daily | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/DailyScrumBoardInProgress.jpg <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint1WithDone.jpg |
+| Provide evidence of pair/mob programming | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/PairProgramming.jpg <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/MobProgramming.jpg  |
 
 ## Test-Driven Development
 |Task|Our Submission|
