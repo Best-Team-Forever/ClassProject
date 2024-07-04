@@ -1,5 +1,3 @@
-keras==3.4.1
-tensorflow==2.16.2
-numpy==1.26.4
-pillow
-flask
+Flask==2.0.1
+tensorflow==2.6.0
+gunicorn==20.1.0

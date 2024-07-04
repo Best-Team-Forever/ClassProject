@@ -54,10 +54,10 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Planning
 |Task|Our Submission|
 |-------|-------------|
-| Document your sprint forecast and rationale in README | Our first sprint has two stories totalling 13 points. These stories were selected based on how they will satisfy the preconditions of getting our infrastructure set up and getting a user logged in. As our first sprint we don't have any prior evidence for how many points we can do in a sprint, so we came to a conservative consensus at 13. |
-| Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/SprintBacklog.jpg |
-| Ensure stories are right-sized | Based on our estimating activity we believe our first two stories of 8 and 5 will be correct for our team. |
-| Decompose stories into tasks | We put our tasks in the story description. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/storySubTasks.jpg |
+| Document your sprint forecast and rationale in README | Our first sprint has three stories totalling 10 points. These stories were selected based on how they will satisfy the preconditions of getting our infrastructure set up and getting a user logged in. As our first sprint we don't have any prior evidence for how many points we can do in a sprint, so we came to a conservative consensus at 10. |
+| Pull appropriate stories into sprint backlog | All team members are developers and all team members participated. <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/SprintBacklog.jpg |
+| Ensure stories are right-sized | Based on our estimating activity we believe our first three stories are estimated correctly at [5, 3, 2] |
+| Decompose stories into tasks | We put our tasks in the story description. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/SubTaskBreakout.jpg|
 | Set up a kanban board for sprint backlog | We are using Jira for the kanban board. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/kanban.jpg |
 
 ## Sprint Execution and Monitoring
@@ -71,23 +71,23 @@ In your repo's README, list your team name and roster with roles
 ## Test-Driven Development
 |Task|Our Submission|
 |-------|-------------|
-| Implement at least 10 passing unit tests |   |
+| Implement at least 10 passing unit tests |  https://github.com/Best-Team-Forever/ClassProject/tree/main/app/webapp/DeepScan/src/test/java/edu/harvard/summer2024/cscis71/bestteamforever/DeepScan |
 
 ## Sprint Review
 |Task|Our Submission|
 |-------|-------------|
-| Demonstrate working software on public system | http://ec2-44-222-82-71.compute-1.amazonaws.com:8080/  |
-| Involve at least one stakeholder and gather feedback |   |
+| Demonstrate working software on public system | http://ec2-3-236-231-109.compute-1.amazonaws.com:8080/ |
+| Involve at least one stakeholder and gather feedback | New stakeholder is John Kirk, Medical Records expert at the University of Utah hospital. General feedback is to improve the UI such that he can understand the results better. Zoom recording at https://harvard.zoom.us/rec/share/V0tOcnlM5DzSHOHqXO141l329QwS5ZBA_1wRh3rWfQcRfHeyQAhPbriPcVwowibW.4omJj4h9Xwf2Ruir |
 | Conduct the review | https://docs.google.com/document/d/1tGFXNN_JQ8STj9YV1wRslFDU_-64_NpmJkU7fKAGxkc/edit?usp=sharing  |
 
 ## Sprint Retrospective
 |Task|Our Submission|
 |-------|-------------|
-| Identify improvement action |   |
-| Create PBI for the action |   |
-| Prioritize the new PBI in the product backlog |   |
+| Identify improvement action | https://docs.google.com/document/d/147WwwJV7g4GAt2_SdHtE30jiksVO_1X9r-Z4eSN1zgY/edit?usp=sharing  |
+| Create PBI for the action | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/retrospectivePBI.jpg |
+| Prioritize the new PBI in the product backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/product%20backlog%20for%20retrospective%20-%20top%20location.png |
 
 ## Product Backlog Refinement 
 |Task|Our Submission|
 |-------|-------------|
-| Ensure all PBIs are true user stories |   |
+| Ensure all PBIs are true user stories | All backlog items have been reviewed by the team for stakeholder value. <br> https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?selectedIssue=SCRUM-8  |
