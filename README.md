@@ -29,7 +29,7 @@ In your repo's README, list your team name and roster with roles
 ## Stakeholder Analysis
 |Task|Our Submission|
 |-----------|-------------|
-| Identify a real person as one of your stakeholders | Danielle S. Bitterman (or staff member) |
+| Identify a real person as one of your stakeholders | Danielle S. Bitterman |
 | Construct a detailed user persona for this stakeholder | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/User%20Persona.jpg |
 
 ## Create Initial Product Backlog
@@ -65,27 +65,27 @@ In your repo's README, list your team name and roster with roles
 |-------|-------------|
 | Create and maintain a sprint burndown chart | https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?usp=sharing |
 | Conduct Daily Scrums | https://docs.google.com/document/d/1Ckz4NUfNv54GQvDLD_mGniID9CmJHE9cT15EM4mn3zE/edit?usp=sharing |
-| Update task board and burndown chart daily |   |
-| Provide evidence of pair/mob programming |   |
+| Update task board and burndown chart daily | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/DailyScrumBoardInProgress.jpg <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint1WithDone.jpg |
+| Provide evidence of pair/mob programming | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/PairProgramming.jpg <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/MobProgramming.jpg  |
 
 ## Test-Driven Development
 |Task|Our Submission|
 |-------|-------------|
-| Implement at least 10 passing unit tests |   |
+| Implement at least 10 passing unit tests |  https://github.com/Best-Team-Forever/ClassProject/tree/main/app/webapp/DeepScan/src/test/java/edu/harvard/summer2024/cscis71/bestteamforever/DeepScan |
 
 ## Sprint Review
 |Task|Our Submission|
 |-------|-------------|
-| Demonstrate working software on public system |   |
-| Involve at least one stakeholder and gather feedback |   |
-| Conduct the review |   |
+| Demonstrate working software on public system | http://ec2-3-236-231-109.compute-1.amazonaws.com:8080/ |
+| Involve at least one stakeholder and gather feedback | New stakeholder is John Kirk, Medical Records expert at the University of Utah hospital. General feedback is to improve the UI such that he can understand the results better. Zoom recording at https://harvard.zoom.us/rec/share/V0tOcnlM5DzSHOHqXO141l329QwS5ZBA_1wRh3rWfQcRfHeyQAhPbriPcVwowibW.4omJj4h9Xwf2Ruir |
+| Conduct the review | https://docs.google.com/document/d/1tGFXNN_JQ8STj9YV1wRslFDU_-64_NpmJkU7fKAGxkc/edit?usp=sharing  |
 
 ## Sprint Retrospective
 |Task|Our Submission|
 |-------|-------------|
-| Identify improvement action |   |
-| Create PBI for the action |   |
-| Prioritize the new PBI in the product backlog |   |
+| Identify improvement action | https://docs.google.com/document/d/147WwwJV7g4GAt2_SdHtE30jiksVO_1X9r-Z4eSN1zgY/edit?usp=sharing  |
+| Create PBI for the action | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/retrospectivePBI.jpg |
+| Prioritize the new PBI in the product backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/product%20backlog%20for%20retrospective%20-%20top%20location.png |
 
 ## Product Backlog Refinement 
 |Task|Our Submission|
