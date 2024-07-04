@@ -76,7 +76,7 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Review
 |Task|Our Submission|
 |-------|-------------|
-| Demonstrate working software on public system | http://ec2-44-222-82-71.compute-1.amazonaws.com:8080/  |
+| Demonstrate working software on public system | http://ec2-3-236-231-109.compute-1.amazonaws.com:8080/ |
 | Involve at least one stakeholder and gather feedback | New stakeholder is John Kirk, Medical Records expert at the University of Utah hospital. General feedback is to improve the UI such that he can understand the results better. Zoom recording at https://harvard.zoom.us/rec/share/V0tOcnlM5DzSHOHqXO141l329QwS5ZBA_1wRh3rWfQcRfHeyQAhPbriPcVwowibW.4omJj4h9Xwf2Ruir |
 | Conduct the review | https://docs.google.com/document/d/1tGFXNN_JQ8STj9YV1wRslFDU_-64_NpmJkU7fKAGxkc/edit?usp=sharing  |
 
