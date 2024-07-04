@@ -90,4 +90,4 @@ In your repo's README, list your team name and roster with roles
 ## Product Backlog Refinement 
 |Task|Our Submission|
 |-------|-------------|
-| Ensure all PBIs are true user stories |   |
+| Ensure all PBIs are true user stories | All backlog items have been reviewed by the team for stakeholder value. <br> https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?selectedIssue=SCRUM-8  |
