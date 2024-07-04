@@ -7,22 +7,30 @@ import java.io.IOException;
 @Service
 public class PredictorImpl implements Predictor {
 
+    private final ProcessBuilder processBuilder;
+
+    public PredictorImpl() {
+        processBuilder = new ProcessBuilder("python3", "/python-docker/predict.py", "/data/images/image");
+    }
+
+    public PredictorImpl(ProcessBuilder processBuilder) {
+        this.processBuilder = processBuilder;
+    }
+
+
     public double predict() {
 
         try {
-            ProcessBuilder processBuilder = new ProcessBuilder("python3", "/python-docker/predict.py", "/data/images/image");
-
             processBuilder.redirectErrorStream(true);
-
             Process process = processBuilder.start();
             int exitCode = process.waitFor();
 
+            if (exitCode != 0) {
+                throw new RuntimeException("Predictor failed with exit code: " + exitCode);
+            }
+
             double result = Double.parseDouble(new String(process.getInputStream().readAllBytes()));
             System.out.println("Result: " + result);
-
-            if (exitCode != 0) {
-                System.out.println("Error exit code: " + exitCode);
-            }
 
             return result;
 
