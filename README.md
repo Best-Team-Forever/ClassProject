@@ -57,7 +57,7 @@ In your repo's README, list your team name and roster with roles
 | Document your sprint forecast and rationale in README | Our first sprint has three stories totalling 10 points. These stories were selected based on how they will satisfy the preconditions of getting our infrastructure set up and getting a user logged in. As our first sprint we don't have any prior evidence for how many points we can do in a sprint, so we came to a conservative consensus at 10. |
 | Pull appropriate stories into sprint backlog | All team members are developers and all team members participated. <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/SprintBacklog.jpg |
 | Ensure stories are right-sized | Based on our estimating activity we believe our first three stories are estimated correctly at [5, 3, 2] |
-| Decompose stories into tasks | We put our tasks in the story description. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/storySubTasks.jpg |
+| Decompose stories into tasks | We put our tasks in the story description. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/SubTaskBreakout.jpg|
 | Set up a kanban board for sprint backlog | We are using Jira for the kanban board. See screenshot: <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/kanban.jpg |
 
 ## Sprint Execution and Monitoring
