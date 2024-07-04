@@ -76,7 +76,7 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Review
 |Task|Our Submission|
 |-------|-------------|
-| Demonstrate working software on public system |   |
+| Demonstrate working software on public system | http://ec2-44-222-82-71.compute-1.amazonaws.com:8080/  |
 | Involve at least one stakeholder and gather feedback |   |
 | Conduct the review |   |
 
