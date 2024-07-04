@@ -29,7 +29,7 @@ In your repo's README, list your team name and roster with roles
 ## Stakeholder Analysis
 |Task|Our Submission|
 |-----------|-------------|
-| Identify a real person as one of your stakeholders | Danielle S. Bitterman (or staff member) |
+| Identify a real person as one of your stakeholders | Danielle S. Bitterman |
 | Construct a detailed user persona for this stakeholder | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/User%20Persona.jpg |
 
 ## Create Initial Product Backlog
