@@ -1,0 +1,11 @@
+services:
+  webapp:
+    platform: linux/amd64
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - deepscan
+networks:
+  deepscan: {}

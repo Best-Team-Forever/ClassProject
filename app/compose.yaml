@@ -13,25 +13,39 @@ services:
 #    volumes:
 #      - "./database/schema.sql:/docker-entrypoint-initdb.d/script_1.sql"
 #      - "./database/data.sql:/docker-entrypoint-initdb.d/script_2.sql"
-  tensorflow:
-    image: tensorflow/serving
-    platform: linux/amd64
-    ports:
-      - "8501:8501"
-    volumes:
-      - "./ai_model:/models/deepscan"
-    environment:
-      - 'MODEL_NAME=deepscan'
-      - 'MODEL_BASE_PATH=/models'
-    networks:
-      - deepscan
+#  tensorflow:
+#    image: tensorflow/serving
+#    platform: linux/amd64
+#    ports:
+#      - "8501:8501"
+#    volumes:
+#      - "./ai_model:/models/deepscan"
+#    environment:
+#      - 'MODEL_NAME=deepscan'
+#      - 'MODEL_BASE_PATH=/models'
+#    networks:
+#      - deepscan
+#  ai:
+#    platform: linux/amd64
+#    build:
+#      dockerfile: ai/Dockerfile
+#    ports:
+#      - "5001:5001"
+#    networks:
+#      - deepscan
+#    volumes:
+#      - "../data/images:/data/images"
   webapp:
+    platform: linux/amd64
     build:
       dockerfile: webapp/Dockerfile
     ports:
       - "8080:8080"
     networks:
       - deepscan
+    volumes:
+      - "../data/images:/data/images"
+      - "../data/model:/data/model"
 
 networks:
   deepscan: {}
