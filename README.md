@@ -64,7 +64,7 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-------|-------------|
 | Create and maintain a sprint burndown chart |   |
-| Conduct Daily Scrums | https://docs.google.com/document/d/1PnFJ7Ecqouzknsl-8pD64gc-ylrqneiOpCpEJkxdoh4/edit?usp=sharing |
+| Conduct Daily Scrums | https://docs.google.com/document/d/1Ckz4NUfNv54GQvDLD_mGniID9CmJHE9cT15EM4mn3zE/edit?usp=sharing |
 | Update task board and burndown chart daily |   |
 | Provide evidence of pair/mob programming |   |
 
