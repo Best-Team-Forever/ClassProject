@@ -84,8 +84,8 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-------|-------------|
 | Identify improvement action | https://docs.google.com/document/d/147WwwJV7g4GAt2_SdHtE30jiksVO_1X9r-Z4eSN1zgY/edit?usp=sharing  |
-| Create PBI for the action |   |
-| Prioritize the new PBI in the product backlog |   |
+| Create PBI for the action | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/retrospectivePBI.jpg |
+| Prioritize the new PBI in the product backlog | Moved to top of next sprint. |
 
 ## Product Backlog Refinement 
 |Task|Our Submission|
