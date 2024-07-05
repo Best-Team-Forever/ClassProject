@@ -13,7 +13,9 @@ public class PredictorImplTest {
     @Test
     void whenPredictIsCalledAIModelIsInvoked() throws IOException {
 
+        //setup
         RestClient restClient = Mockito.mock(RestClient.class);
+        Predictor predictor = new PredictorImpl(restClient);
 
     }
 /*
