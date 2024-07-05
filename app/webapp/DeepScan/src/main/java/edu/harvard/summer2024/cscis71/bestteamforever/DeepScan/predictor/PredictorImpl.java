@@ -7,9 +7,18 @@ import org.springframework.web.client.RestClient;
 @Service
 public class PredictorImpl implements Predictor {
 
+    private final RestClient restClient;
+
+    public PredictorImpl() {
+        this.restClient = RestClient.builder().baseUrl("http://ai:5001").build();
+    }
+
+    public PredictorImpl(RestClient restClient) {
+        this.restClient = restClient;
+    }
+
     public double predict() {
 
-        RestClient restClient = RestClient.builder().baseUrl("http://ai:5001").build();
         ResponseEntity<String> response = restClient.get().retrieve().toEntity(String.class);
 
         if (response.getStatusCode().is2xxSuccessful()) {
