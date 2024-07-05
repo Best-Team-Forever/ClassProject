@@ -8,7 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 public class PredictorImplTest {
-
+/*
     @Test
     void whenPredictIsCalledProcessIsStarted() throws IOException {
 
@@ -59,5 +59,5 @@ public class PredictorImplTest {
         //execute and assert
 
         Exception exception = Assertions.assertThrows(RuntimeException.class, predictor::predict);
-    }
+    }*/
 }

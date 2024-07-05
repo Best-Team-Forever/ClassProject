@@ -25,16 +25,15 @@ services:
 #      - 'MODEL_BASE_PATH=/models'
 #    networks:
 #      - deepscan
-#  ai:
-#    platform: linux/amd64
-#    build:
-#      dockerfile: ai/Dockerfile
-#    ports:
-#      - "5001:5001"
-#    networks:
-#      - deepscan
-#    volumes:
-#      - "../data/images:/data/images"
+  ai:
+    build:
+      dockerfile: ai/Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - deepscan
+    volumes:
+      - "../data/images:/data/images"
   webapp:
     platform: linux/amd64
     build:
