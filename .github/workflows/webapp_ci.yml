@@ -10,9 +10,10 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
-  paths:
-    - '/app/webapp/*'
+    branches:
+      - main
+    paths:
+      - '/app/webapp/*'
 
 jobs:
   build:
