@@ -32,23 +32,10 @@ jobs:
           run: pip install pytest-github-actions-annotate-failures
         - name: Run tests
         run: |
-          pytest --alluredir=allure-results --browser remote
-        - name: Allure results
-              uses: simple-elf/allure-report-action@master
-              if: always()
-              id: allure-report
-              with:
-                allure_results: allure-results
-                allure_report: allure-report
-                gh_pages: gh-pages
-                allure_history: allure-history
-         - name: Deploy report to Github Pages
-           if: always()
-           uses: peaceiris/actions-gh-pages@v2
-           env:
-             PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-             PUBLISH_BRANCH: gh-pages
-             PUBLISH_DIR: allure-history
+          coverage run -m pytest -v -s 
+        - name: Generate Coverage Report
+          run: |
+            coverage report -m
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
