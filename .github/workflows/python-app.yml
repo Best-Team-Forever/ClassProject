@@ -30,7 +30,7 @@ jobs:
         pip install pytest
         pip install flask_testing
         pip install flake8
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install -r flaskversion/requirements.txt;
     - name: Run tests
       run: |
         pytest flaskversion/test_app.py
