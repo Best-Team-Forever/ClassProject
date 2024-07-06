@@ -70,7 +70,7 @@ class FlaskAppTestCase(TestCase):
         model = tf.keras.models.load_model('fine_tuned_weights.h5')
         label, probability = classify_image(image, model)
         self.assertIn(label, ['NORMAL', 'ABNORMAL'])
-        self.assertTrue(0 <= probability <= 1)
+        self.assertTrue(0 <= probability <= 1) 
 
 if __name__ == '__main__':
     unittest.main()
