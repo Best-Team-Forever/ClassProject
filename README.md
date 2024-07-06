@@ -76,7 +76,7 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Review
 |Task|Our Submission|
 |-------|-------------|
-| Demonstrate working software on public system | http://ec2-3-236-231-109.compute-1.amazonaws.com:8080/ |
+| Demonstrate working software on public system | https://plankton-app-bxgyc.ondigitalocean.app/ |
 | Involve at least one stakeholder and gather feedback | New stakeholder is John Kirk, Medical Records expert at the University of Utah hospital. General feedback is to improve the UI such that he can understand the results better. Zoom recording at https://harvard.zoom.us/rec/share/V0tOcnlM5DzSHOHqXO141l329QwS5ZBA_1wRh3rWfQcRfHeyQAhPbriPcVwowibW.4omJj4h9Xwf2Ruir |
 | Conduct the review | https://docs.google.com/document/d/1tGFXNN_JQ8STj9YV1wRslFDU_-64_NpmJkU7fKAGxkc/edit?usp=sharing  |
 
@@ -91,3 +91,47 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-------|-------------|
 | Ensure all PBIs are true user stories | All backlog items have been reviewed by the team for stakeholder value. <br> https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?selectedIssue=SCRUM-8  |
+
+# Project Part 3: Second Sprint
+## Sprint Planning
+|Task|Our Submission|
+|-----------|-------------|
+| Document sprint forecast and rationale | |
+| Pull appropriate stories into sprint backlog | |
+| Ensure stories are right-sized | |
+| Decompose stories into tasks | |
+| Set up a kanban board for sprint backlog | |
+| Create and maintain a sprint burndown chart | |
+## Sprint Execution and Monitoring
+|Task|Our Submission|
+|-----------|-------------|
+| Conduct Daily Scrums | |
+| Document at least one scrum | |
+| Discuss past 24 hours' progress | |
+| Plan next 24 hours' work | |
+| Identify and plan for impediments | |
+| Update task board and burndown chart daily | |
+## Development Practices
+|Task|Our Submission|
+|-----------|-------------|
+| Pair or Mob Programming | |
+| Test-Driven Development | |
+| Continuous Integration | |
+# Continuous Delivery
+|Task|Our Submission|
+|-----------|-------------|
+| Implement and provide evidence of a working CD system | |
+# Sprint Review
+|Task|Our Submission|
+|-----------|-------------|
+| Demonstrate working software on public system | https://plankton-app-bxgyc.ondigitalocean.app/ |
+| Involve at least one stakeholder and gather feedback | John Kirk, Medical Records expert at the University of Utah hospital. Feedback includes UI improvements, change the precision on the prediction result, find a place to view patient details along with the image. <br> https://harvard.zoom.us/rec/play/xMybUJDOQurV5F7meq0cnv6tQGZD8URKokCTuUtPPb6Dndi83sqgvQP4JdYGScPFl6k24R-gbHseoQeE.y6NSZnGWbGN3boT1?canPlayFromShare=true&from=share_recording_detail&startTime=1720280927000&componentName=rec-play&originRequestUrl=https%3A%2F%2Fharvard.zoom.us%2Frec%2Fshare%2FQf8Jnf7E0g5e9mnqW_g1Y5TwVSwcGZomfCTmIo_LL-ZWPLPKxwg0ddeSBKb6KnKW.v4w47Lj0AyNAoKNm%3FstartTime%3D1720280927000 |
+| Conduct the review | |
+# Sprint Retrospective
+|Task|Our Submission|
+|-----------|-------------|
+| All team members participate | |
+| Identify improvement action | |
+| Make a concrete plan for implementing the change | |
+# Product Backlog Refinement
+| Ensure all PBIs are true user stories | |
