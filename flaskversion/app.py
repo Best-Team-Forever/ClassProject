@@ -16,7 +16,7 @@ def preprocess_image(dicom_path):
     image = dicom.pixel_array
     print(f"Original image shape: {image.shape}")
     if image.max() > 0:  # Avoid division by zero
-        image = (image - image.min()) / (image.max() - image.min())  # Normalize the images
+        image = (image - image.min()) / (image.max() - image.min())  # Normalize the image
     image = cv2.resize(image, (224, 224))  # Resize image to the size expected by the model
     image = np.stack((image,)*3, axis=-1)  # Convert to 3 channels
     image = preprocess_input(image)  # Preprocess the images
