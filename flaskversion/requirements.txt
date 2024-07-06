@@ -2,3 +2,8 @@ Flask
 tensorflow==2.16.2
 gunicorn==20.1.0
 pillow
+
+
+numpy==1.26.4
+pydicom==2.4.4
+opencv-python-headless==4.10.0.84
