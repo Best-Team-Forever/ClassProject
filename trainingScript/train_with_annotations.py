@@ -37,17 +37,54 @@ def preprocess_image(dicom_path):
     image = image / 255.0  # Normalize the image
     return image, dicom
 
+# Find and copy up to 10 abnormal images
+def find_and_copy_abnormal_images():
+    selected_count = 0  # Count the number of selected images
+    for _, row in breast_annotations.iterrows():
+        if selected_count >= 10:
+            break
+        
+        study_id = row['study_id']
+        image_id = row['image_id']
+        image_subfolder = os.path.join(images_dir, study_id)
+        
+        if not os.path.exists(image_subfolder):
+            print(f"Subfolder does not exist: {image_subfolder}")
+            continue
+
+        dicom_files = [f for f in os.listdir(image_subfolder) if f.endswith('.dicom')]
+        if not dicom_files:
+            print(f"No DICOM files found in: {image_subfolder}")
+            continue
+
+        for dicom_file in dicom_files:
+            dicom_path = os.path.join(image_subfolder, dicom_file)
+            try:
+                bboxes_row = finding_annotations[finding_annotations['image_id'] == image_id]
+                if not bboxes_row.empty:
+                    if 'finding_categories' in bboxes_row.columns and not bboxes_row['finding_categories'].str.contains("No Finding").all():
+                        # Copy image to output_dir if it is abnormal and we haven't reached the limit
+                        output_path = os.path.join(output_dir, os.path.basename(dicom_path))
+                        shutil.copy(dicom_path, output_path)
+                        selected_count += 1
+                        print(f"Copied {dicom_path} to {output_path}")
+                        
+                        if selected_count >= 10:
+                            break
+
+            except Exception as e:
+                print(f"Error processing file {dicom_path}: {e}")
+                continue
+    print(f"Copied {selected_count} images with abnormalities to the output directory")
+
 # Load images and labels
 def load_dataset():
     images = []
     labels = []
     bboxes = []
     count = 0  # Count the number of processed images
-    selected_count = 0  # Count the number of selected images
+    
     for _, row in breast_annotations.iterrows():
-        if selected_count >= 10:
-            break
-        
         study_id = row['study_id']
         image_id = row['image_id']
         image_subfolder = os.path.join(images_dir, study_id)
@@ -71,7 +108,7 @@ def load_dataset():
                 # Extract bounding boxes and determine abnormality from finding annotations
                 bboxes_row = finding_annotations[finding_annotations['image_id'] == image_id]
                 if not bboxes_row.empty:
-                    if 'finding_categories' in bboxes_row.columns and bboxes_row['finding_categories'].str.contains("No Finding").all() == False:
+                    if 'finding_categories' in bboxes_row.columns and not bboxes_row['finding_categories'].str.contains("No Finding").all():
                         label = 1  # Label 1 for ABNORMAL
 
                     for _, bbox in bboxes_row.iterrows():
@@ -83,20 +120,17 @@ def load_dataset():
                 labels.append(label)
                 bboxes.append(bbox_list)
                 count += 1
-                
-                # Copy image to output_dir if it is abnormal and we haven't reached the limit
-                if label == 1 and selected_count < 10:
-                    shutil.copy(dicom_path, output_dir)
-                    selected_count += 1
-                    print(f"Copied {dicom_path} to {output_dir}")
 
                 print(f"Processed file {dicom_path}: label={label}, bounding_boxes={bbox_list}")
             except Exception as e:
                 print(f"Error processing file {dicom_path}: {e}")
                 continue
+
     print(f"Processed {count} images")
-    print(f"Copied {selected_count} images with abnormalities to the output directory")
     return np.array(images), np.array(labels), bboxes
+
+# Find and copy abnormal images
+find_and_copy_abnormal_images()
 
 # Load and split dataset
 images, labels, bboxes = load_dataset()
