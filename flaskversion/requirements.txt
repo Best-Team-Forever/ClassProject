@@ -1,12 +1,8 @@
-# Flask
-# tensorflow==2.16.2
-# gunicorn==20.1.0
-# pillow
-
-
-Flask==3.0.3
+Flask
 tensorflow==2.16.2
+gunicorn==20.1.0
+pillow
+
+
 numpy==1.26.4
-pandas==2.2.2
 pydicom==2.4.4
-opencv-python-headless==4.10.0.84
