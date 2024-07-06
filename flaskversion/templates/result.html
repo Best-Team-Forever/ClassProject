@@ -45,10 +45,47 @@
     <p>Label: {{ label }}</p>
     <p>Probability: {{ probability }}</p>
     <img src="{{ image_path }}" alt="Annotated Image" width="50%" class="img-fluid mt-3">
+
+    <!-- Comment Section -->
+    <div class="mt-4">
+      <form id="commentForm">
+        <div class="form-group">
+          <label for="comment">Comments:</label>
+          <textarea class="form-control" id="comment" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="saveComment()">Save Comment</button>
+      </form>
+    </div>
+
+    <!-- Display Saved Comments (if any) -->
+    <div id="savedComments" class="mt-4">
+      <!-- Comments will be displayed here -->
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Function to save comment (you'll need to implement the saveComment function)
+    function saveComment() {
+      var comment = document.getElementById('comment').value;
+      // You can send 'comment' to your backend to save it
+      // Example using jQuery for simplicity (replace with your backend code)
+      $.post('/save-comment', { comment: comment }, function(response) {
+        // Assuming backend returns success or saved comment data
+        if (response.success) {
+          // Clear input field after saving
+          document.getElementById('comment').value = '';
+          // Update UI to display saved comment (optional)
+          var commentElement = '<div class="card"><div class="card-body">' + comment + '</div></div>';
+          $('#savedComments').append(commentElement);
+        } else {
+          alert('Failed to save comment. Please try again.');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
