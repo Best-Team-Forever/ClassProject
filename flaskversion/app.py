@@ -9,7 +9,7 @@ from tensorflow.keras.applications.densenet import preprocess_input
 app = Flask(__name__)
 
 # Load the pre-trained DenseNet121 model
-model = tf.keras.models.load_model(os.path.abspath('/workspaces/ClassProject/flaskversion/fine_tuned_weights.h5'))
+model = tf.keras.models.load_model('fine_tuned_weights.h5')
 
 def preprocess_image(dicom_path):
     dicom = pydicom.dcmread(dicom_path)
