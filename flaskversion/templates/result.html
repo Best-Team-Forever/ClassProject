@@ -56,7 +56,7 @@
   <div class="container content">
     <h1 class="mt-4">Classification Result</h1>
     <p>Label: {{ label }}</p>
-    <p>Probability: {{ probability }}%</p>
+    <p>Risk Score: {{ probability }}%</p>
     <img src="/{{ image_path }}" alt="Annotated Image" width="50%" class="img-fluid mt-3">
 
     <form action="/save_patient_info" method="post" class="mt-3">
