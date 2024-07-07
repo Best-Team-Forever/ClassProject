@@ -3,5 +3,6 @@
         "flaskversion"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "github-actions.workflows.pinned.refresh.enabled": true
 }
