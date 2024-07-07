@@ -52,6 +52,8 @@ def upload_file():
         try:
             image, dicom = preprocess_image(dicom_path)
             label, probability = classify_image(image, model)
+            probability *= 100.0
+            probability = round(probability, 2)
 
             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
             annotated_image_path = os.path.join('static', 'annotated_image.png')
