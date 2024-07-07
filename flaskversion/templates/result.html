@@ -32,6 +32,22 @@
       background-color: #c1b8c8; /* Hover color from the scheme */
       border-color: #c1b8c8;
     }
+    /* Ensure both columns are same height */
+    .same-height {
+      display: flex;
+      align-items: stretch;
+    }
+    .same-height > div {
+      display: flex;
+      flex-direction: column;
+    }
+    .same-height img {
+      height: 100%;
+      object-fit: cover; /* Ensure image covers its container */
+    }
+    .same-height .comment-area {
+      height: 100%;
+    }
   </style>
 </head>
 <body>
@@ -42,25 +58,30 @@
 
   <div class="container content">
     <h1 class="mt-4">Classification Result</h1>
-    <p>Label: {{ label }}</p>
-    <p>Probability: {{ probability }}</p>
-    <img src="{{ image_path }}" alt="Annotated Image" width="50%" class="img-fluid mt-3">
 
-    <!-- Comment Section -->
-    <div class="mt-4">
-      <form id="commentForm">
-        <div class="form-group">
-          <label for="comment">Comments:</label>
-          <textarea class="form-control" id="comment" rows="3"></textarea>
+    <div class="row same-height">
+      <div class="col-md-6">
+        <img src="{{ image_path }}" alt="Annotated Image" class="img-fluid">
+      </div>
+      <div class="col-md-6 comment-area">
+        <!-- Comment Section -->
+        <div class="mt-4">
+          <form id="commentForm">
+            <div class="form-group">
+              <label for="comment">Comments:</label>
+              <textarea class="form-control" id="comment" rows="8"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="saveComment()">Save Comment</button>
+          </form>
         </div>
-        <button type="button" class="btn btn-primary" onclick="saveComment()">Save Comment</button>
-      </form>
+
+        <!-- Display Saved Comments (if any) -->
+        <div id="savedComments" class="mt-4">
+          <!-- Comments will be displayed here -->
+        </div>
+      </div>
     </div>
 
-    <!-- Display Saved Comments (if any) -->
-    <div id="savedComments" class="mt-4">
-      <!-- Comments will be displayed here -->
-    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -68,7 +89,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
-    // Function to save comment (you'll need to implement the saveComment function)
+    // Function to save comment
     function saveComment() {
       var comment = document.getElementById('comment').value;
       // You can send 'comment' to your backend to save it
