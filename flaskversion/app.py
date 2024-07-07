@@ -42,7 +42,11 @@ def upload_file():
     if file.filename == '':
         return 'No selected file'
     if file:
-        dicom_path = os.path.join('uploads', file.filename)
+        # Ensure the uploads directory exists
+        uploads_dir = 'uploads'
+        os.makedirs(uploads_dir, exist_ok=True)
+
+        dicom_path = os.path.join(uploads_dir, file.filename)
         file.save(dicom_path)
 
         try:
@@ -98,7 +102,7 @@ def results():
 
 @app.route('/result/<patient_id>')
 def result(patient_id):
-    if os.path.exists('patient_data.csv'):
+    if os.path.exists('patient_data.csv')):
         with open('patient_data.csv', mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
