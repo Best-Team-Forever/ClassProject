@@ -31,9 +31,10 @@ jobs:
         pip install flask_testing
         pip install flake8
         pip install -r flaskversion/requirements.txt;
-    - name: Run tests
+    - name: Test with pytest
       run: |
-        pytest flaskversion/test_app.py
+        pip install pytest pytest-cov
+        pytest flaskversion/test_app.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
