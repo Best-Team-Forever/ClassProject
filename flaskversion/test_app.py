@@ -8,6 +8,7 @@ import tensorflow as tf
 import numpy as np
 import pydicom
 from pydicom.uid import ExplicitVRLittleEndian
+import coverage
 
 class FlaskAppTestCase(TestCase):
 
