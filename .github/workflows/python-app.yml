@@ -34,7 +34,7 @@ jobs:
     - name: Test with pytest
       run: |
         cd flaskversion 
-        pytest test_app.py -rA
+        gpytest test_app.py -rA
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
