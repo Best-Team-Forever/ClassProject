@@ -12,8 +12,8 @@
 In your repo's README, list your team name and roster with roles 
 |Member|Role|
 |-----------|-------------|
-| Jhankar Saxena | Product Owner |
-| Yun Lin (Norah) | Scrum Master |
+| Jhankar Saxena | Product Owner, Developer |
+| Yun Lin (Norah) | Scrum Master, Developer |
 | Ben Galdo | Developer |
 | Alejandro Chaparro Garcia | Developer |
 | David Rasmussen | Developer |
@@ -24,12 +24,12 @@ In your repo's README, list your team name and roster with roles
 | Identify an open-source product to create and name it | DeepScan |
 | Articulate a far vision for the product | Saving lives through early breast cancer detection |
 | Articulate a near vision for the first version | A reliable AI tool for radiologists to identify early signs of breast cancer from mammogram images |
-| Identify at least three stakeholder types | Radiologist; Oncologist; Medical Administrator |
+| Identify at least three stakeholder types | Radiologist - Dr. Brooke Breen; Oncologist; Patient - Molly |
 
 ## Stakeholder Analysis
 |Task|Our Submission|
 |-----------|-------------|
-| Identify a real person as one of your stakeholders | Danielle S. Bitterman |
+| Identify a real person as one of your stakeholders | Dr. Brooke Breen |
 | Construct a detailed user persona for this stakeholder | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/User%20Persona.jpg |
 
 ## Create Initial Product Backlog
@@ -96,7 +96,7 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Planning
 |Task|Our Submission|
 |-----------|-------------|
-| Document sprint forecast and rationale | Sprint forecast: We forecasted 10 user story points for this sprint based on yesterday's weather. Rationale: The first item on our backlog is our Sprint Retrospective. We prioritized and pulled stories to our Sprint 2 based on the value to the stakeholders, technical dependensies, and feasibility. Our main stakeholder, the radiologist wants to be able to upload mammograms in DICOM format - this is a new feature to our current image upload capabilities and second in our sprint backlog. Dr. Breen wants the mammogram analyzed with at least 80% accurately hence, improving the image analysis model is high priority and next on our product backlog. This is followed by improving analysis result page to enhance user experince and adding the feature for our radiologist, Dr. Breen, to add comments. |
+| Document sprint forecast and rationale | Sprint forecast: We forecasted 10 user story points for this sprint based on yesterday's weather. Rationale: The first item on our backlog is our Sprint Retrospective. We prioritized and pulled stories to our Sprint 2 based on the value to the stakeholders, technical dependensies, and feasibility. Our main stakeholder, Dr. Brooke Breen, the radiologist wants to be able to upload mammograms in DICOM format - this is a new feature to our current image upload capabilities and second in our sprint backlog. Dr. Breen wants the mammogram analyzed with at least 80% accurately hence, improving the image analysis model is high priority and next on our product backlog. This is followed by improving analysis result page to enhance user experince and adding the feature for our radiologist, Dr. Breen, to add comments. |
 | Pull appropriate stories into sprint backlog | |
 | Ensure stories are right-sized | |
 | Decompose stories into tasks | |
