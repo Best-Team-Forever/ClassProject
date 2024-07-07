@@ -9,7 +9,7 @@ from tensorflow.keras.applications.densenet import preprocess_input
 app = Flask(__name__)
 
 # Load the pre-trained DenseNet121 model
-model = tf.keras.models.load_model('flaskversion/fine_tuned_weights.h5')
+model = tf.keras.models.load_model('fine_tuned_weights.h5')
 
 def preprocess_image(dicom_path):
     dicom = pydicom.dcmread(dicom_path)
@@ -19,7 +19,7 @@ def preprocess_image(dicom_path):
         image = (image - image.min()) / (image.max() - image.min())  # Normalize the images
     image = cv2.resize(image, (224, 224))  # Resize image to the size expected by the model
     image = np.stack((image,)*3, axis=-1)  # Convert to 3 channels
-    image = preprocess_input(image)  # Preprocess the images
+    image = preprocess_input(image)  # Preprocess the image
     return image, dicom
 
 def classify_image(image, model):

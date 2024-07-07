@@ -7,7 +7,6 @@ import tensorflow as tf
 import numpy as np
 import pydicom
 from pydicom.uid import ExplicitVRLittleEndian
-import coverage
 
 class FlaskAppTestCase(TestCase):
 
@@ -68,7 +67,7 @@ class FlaskAppTestCase(TestCase):
 
     def test_classify_image(self):
         image, _ = preprocess_image(self.dicom_path)
-        model = tf.keras.models.load_model('flaskversion/fine_tuned_weights.h5')
+        model = tf.keras.models.load_model('fine_tuned_weights.h5')
         label, probability = classify_image(image, model)
         self.assertIn(label, ['NORMAL', 'ABNORMAL'])
         self.assertTrue(0 <= probability <= 1) 
