@@ -11,7 +11,7 @@ import uuid
 app = Flask(__name__)
 
 # Load the pre-trained DenseNet121 model
-model = tf.keras.models.load_model('flaskversion/fine_tuned_weights.h5')
+model = tf.keras.models.load_model('fine_tuned_weights.h5')
 
 
 def preprocess_image(dicom_path):
