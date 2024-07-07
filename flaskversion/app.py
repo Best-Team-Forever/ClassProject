@@ -102,7 +102,7 @@ def results():
 
 @app.route('/result/<patient_id>')
 def result(patient_id):
-    if os.path.exists('patient_data.csv')):
+    if os.path.exists('patient_data.csv'):
         with open('patient_data.csv', mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
