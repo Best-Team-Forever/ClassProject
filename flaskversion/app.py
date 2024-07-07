@@ -44,7 +44,7 @@ def upload_file():
     if file.filename == '':
         return 'No selected file'
     if file:
-        dicom_path = os.path.join('flaskversion', 'uploads', file.filename)
+        dicom_path = os.path.join('uploads', file.filename)
         file.save(dicom_path)
 
         try:
@@ -52,7 +52,7 @@ def upload_file():
             label, probability = classify_image(image, model)
 
             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
-            annotated_image_path = os.path.join('flaskversion', 'static', 'annotated_image.png')
+            annotated_image_path = os.path.join('static', 'annotated_image.png')
             cv2.imwrite(annotated_image_path, image_rgb)
 
             return render_template('result.html', label=label, probability=probability, image_path='static/annotated_image.png')
@@ -70,11 +70,11 @@ def save_patient_info():
 
     patient_id = str(uuid.uuid4())
     image_id = str(uuid.uuid4())
-    image_save_path = os.path.join('flaskversion', 'patient_images', f"{image_id}.png")
-    os.makedirs(os.path.join('flaskversion', 'patient_images'), exist_ok=True)
-    os.rename(os.path.join('flaskversion', image_path), image_save_path)
+    image_save_path = os.path.join('patient_images', f"{image_id}.png")
+    os.makedirs(os.path.join('patient_images'), exist_ok=True)
+    os.rename(os.path.join(image_path), image_save_path)
 
-    with open(os.path.join('flaskversion', 'patient_data.csv'), mode='a', newline='') as file:
+    with open(os.path.join('patient_data.csv'), mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([patient_id, first_name, last_name, comments, label, probability, image_save_path])
 
@@ -83,8 +83,8 @@ def save_patient_info():
 @app.route('/results')
 def results():
     entries = []
-    if os.path.exists(os.path.join('flaskversion', 'patient_data.csv')):
-        with open(os.path.join('flaskversion', 'patient_data.csv'), mode='r') as file:
+    if os.path.exists(os.path.join('patient_data.csv')):
+        with open(os.path.join('patient_data.csv'), mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
                 entries.append({
@@ -100,13 +100,13 @@ def results():
 
 @app.route('/result/<patient_id>')
 def result(patient_id):
-    if os.path.exists(os.path.join('flaskversion', 'patient_data.csv')):
-        with open(os.path.join('flaskversion', 'patient_data.csv'), mode='r') as file:
+    if os.path.exists(os.path.join('patient_data.csv')):
+        with open(os.path.join('patient_data.csv'), mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
                 if row[0] == patient_id:
                     # Correct the image path
-                    image_path = row[6].replace('flaskversion/', '')
+                    # image_path = row[6].replace('flaskversion/', '')
                     return render_template('result.html', label=row[4], probability=row[5], image_path=image_path, 
                                            first_name=row[1], last_name=row[2], comments=row[3])
     return "Patient not found"
@@ -120,10 +120,10 @@ def about():
     return render_template('about.html')
 
 if __name__ == "__main__":
-    if not os.path.exists(os.path.join('flaskversion', 'uploads')):
-        os.makedirs(os.path.join('flaskversion', 'uploads'))
-    if not os.path.exists(os.path.join('flaskversion', 'static')):
-        os.makedirs(os.path.join('flaskversion', 'static'))
-    if not os.path.exists(os.path.join('flaskversion', 'patient_images')):
-        os.makedirs(os.path.join('flaskversion', 'patient_images'))
+    if not os.path.exists(os.path.join('uploads')):
+        os.makedirs(os.path.join('uploads'))
+    if not os.path.exists(os.path.join('static')):
+        os.makedirs(os.path.join('static'))
+    if not os.path.exists(os.path.join('patient_images')):
+        os.makedirs(os.path.join('patient_images'))
     app.run(debug=True)
