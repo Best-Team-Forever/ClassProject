@@ -6,9 +6,7 @@ name: DeepSearch
 
 on:
   push:
-    branches: [ "flask_only" ]
-  pull_request:
-    branches: [ "flask_only" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
