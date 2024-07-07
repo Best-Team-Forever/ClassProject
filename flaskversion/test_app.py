@@ -67,7 +67,7 @@ class FlaskAppTestCase(TestCase):
 
     def test_classify_image(self):
         image, _ = preprocess_image(self.dicom_path)
-        model = tf.keras.models.load_model('flaskversion/fine_tuned_weights.h5')
+        model = tf.keras.models.load_model('fine_tuned_weights.h5')
         label, probability = classify_image(image, model)
         self.assertIn(label, ['NORMAL', 'ABNORMAL'])
         self.assertTrue(0 <= probability <= 1) 
