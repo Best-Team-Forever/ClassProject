@@ -97,10 +97,10 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-----------|-------------|
 | Document sprint forecast and rationale | Sprint forecast: We forecasted 10 user story points for this sprint based on yesterday's weather. Rationale: The first item on our backlog is our Sprint Retrospective. We prioritized and pulled stories to our Sprint 2 based on the value to the stakeholders, technical dependensies, and feasibility. Our main stakeholder, Dr. Brooke Breen, the radiologist wants to be able to upload mammograms in DICOM format - this is a new feature to our current image upload capabilities and second in our sprint backlog. Dr. Breen wants the mammogram analyzed with at least 80% accurately hence, improving the image analysis model is high priority and next on our product backlog. This is followed by improving analysis result page to enhance user experince and adding the feature for our radiologist, Dr. Breen, to add comments. |
-| Pull appropriate stories into sprint backlog | |
+| Pull appropriate stories into sprint backlog |doc/Sprint2Backlog.png |
 | Ensure stories are right-sized | |
 | Decompose stories into tasks | |
-| Set up a kanban board for sprint backlog | |
+| Set up a kanban board for sprint backlog |doc/Sprint2KanbanBoard.png |
 | Create and maintain a sprint burndown chart | |
 ## Sprint Execution and Monitoring
 |Task|Our Submission|
