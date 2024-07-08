@@ -65,24 +65,44 @@ def upload_file():
 
 @app.route('/save_patient_info', methods=['POST'])
 def save_patient_info():
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    comments = request.form['comments']
-    label = request.form['label']
-    probability = request.form['probability']
-    image_path = request.form['image_path']
+    try:
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        comments = request.form['comments']
+        label = request.form['label']
+        probability = request.form['probability']
+        image_path = request.form['image_path']
 
-    patient_id = str(uuid.uuid4())
-    image_id = str(uuid.uuid4())
-    image_save_path = os.path.join('patient_images', f"{image_id}.png")
-    os.makedirs('patient_images', exist_ok=True)
-    os.rename(image_path, image_save_path)
+        # Generate unique IDs for the patient and the image
+        patient_id = str(uuid.uuid4())
+        image_id = str(uuid.uuid4())
 
-    with open('patient_data.csv', mode='a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow([patient_id, first_name, last_name, comments, label, probability, image_save_path])
+        # Define the directory and file path for the image
+        image_dir = os.path.join('patient_images')
+        image_save_path = os.path.join(image_dir, f"{image_id}.png")
+        print("image_save_path: " + image_save_path)
 
-    return redirect(url_for('results'))
+        # Ensure the directory exists
+        os.makedirs(image_dir, exist_ok=True)
+
+        # Move the uploaded image to the designated directory
+        os.rename(image_path, image_save_path)
+
+        # Open the CSV file and append the new patient data
+        csv_file_path = os.path.join('patient_data.csv')
+        with open(csv_file_path, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([patient_id, first_name, last_name, comments, label, probability, image_save_path])
+
+        print(f"Successfully saved patient info: {patient_id}, {first_name}, {last_name}")
+
+        # Redirect to the results page after successful data saving
+        return redirect(url_for('results'))
+
+    except Exception as e:
+        # Handle exceptions (e.g., log the error, return an error message)
+        print(f"Error occurred: {e}")
+        return "An error occurred while saving patient info.", 500
 
 @app.route('/results')
 def results():
