@@ -13,7 +13,6 @@ app = Flask(__name__)
 # Load the pre-trained DenseNet121 model
 model = tf.keras.models.load_model('fine_tuned_weights.h5')
 
-
 def preprocess_image(dicom_path):
     dicom = pydicom.dcmread(dicom_path)
     image = dicom.pixel_array
@@ -23,7 +22,6 @@ def preprocess_image(dicom_path):
     image = np.stack((image,) * 3, axis=-1)  # Convert to 3 channels
     image = preprocess_input(image)  # Normalize to [-1, 1] if using tf.keras.applications.densenet.preprocess_input
     return image, dicom
-
 
 def classify_image(image, model):
     image = np.expand_dims(image, axis=0)
@@ -44,15 +42,21 @@ def upload_file():
     if file.filename == '':
         return 'No selected file'
     if file:
-        dicom_path = os.path.join('flaskversion', 'uploads', file.filename)
+        # Ensure the uploads directory exists
+        uploads_dir = 'uploads'
+        os.makedirs(uploads_dir, exist_ok=True)
+
+        dicom_path = os.path.join(uploads_dir, file.filename)
         file.save(dicom_path)
 
         try:
             image, dicom = preprocess_image(dicom_path)
             label, probability = classify_image(image, model)
+            probability *= 100.0
+            probability = round(probability, 2)
 
             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
-            annotated_image_path = os.path.join('flaskversion', 'static', 'annotated_image.png')
+            annotated_image_path = os.path.join('static', 'annotated_image.png')
             cv2.imwrite(annotated_image_path, image_rgb)
 
             return render_template('result.html', label=label, probability=probability, image_path='static/annotated_image.png')
@@ -70,11 +74,11 @@ def save_patient_info():
 
     patient_id = str(uuid.uuid4())
     image_id = str(uuid.uuid4())
-    image_save_path = os.path.join('flaskversion', 'patient_images', f"{image_id}.png")
-    os.makedirs(os.path.join('flaskversion', 'patient_images'), exist_ok=True)
-    os.rename(os.path.join('flaskversion', image_path), image_save_path)
+    image_save_path = os.path.join('patient_images', f"{image_id}.png")
+    os.makedirs('patient_images', exist_ok=True)
+    os.rename(image_path, image_save_path)
 
-    with open(os.path.join('flaskversion', 'patient_data.csv'), mode='a', newline='') as file:
+    with open('patient_data.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([patient_id, first_name, last_name, comments, label, probability, image_save_path])
 
@@ -83,8 +87,8 @@ def save_patient_info():
 @app.route('/results')
 def results():
     entries = []
-    if os.path.exists(os.path.join('flaskversion', 'patient_data.csv')):
-        with open(os.path.join('flaskversion', 'patient_data.csv'), mode='r') as file:
+    if os.path.exists('patient_data.csv'):
+        with open('patient_data.csv', mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
                 entries.append({
@@ -100,30 +104,25 @@ def results():
 
 @app.route('/result/<patient_id>')
 def result(patient_id):
-    if os.path.exists(os.path.join('flaskversion', 'patient_data.csv')):
-        with open(os.path.join('flaskversion', 'patient_data.csv'), mode='r') as file:
+    if os.path.exists('patient_data.csv'):
+        with open('patient_data.csv', mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
                 if row[0] == patient_id:
-                    # Correct the image path
-                    image_path = row[6].replace('flaskversion/', '')
-                    return render_template('result.html', label=row[4], probability=row[5], image_path=image_path, 
+                    return render_template('result.html', label=row[4], probability=row[5], image_path=row[6], 
                                            first_name=row[1], last_name=row[2], comments=row[3])
     return "Patient not found"
 
 @app.route('/patient_images/<filename>')
 def patient_images(filename):
-    return send_from_directory(os.path.join('patient_images'), filename)
+    return send_from_directory('patient_images', filename)
 
 @app.route('/about')
 def about():
     return render_template('about.html')
 
 if __name__ == "__main__":
-    if not os.path.exists(os.path.join('flaskversion', 'uploads')):
-        os.makedirs(os.path.join('flaskversion', 'uploads'))
-    if not os.path.exists(os.path.join('flaskversion', 'static')):
-        os.makedirs(os.path.join('flaskversion', 'static'))
-    if not os.path.exists(os.path.join('flaskversion', 'patient_images')):
-        os.makedirs(os.path.join('flaskversion', 'patient_images'))
+    os.makedirs('uploads', exist_ok=True)
+    os.makedirs('static', exist_ok=True)
+    os.makedirs('patient_images', exist_ok=True)
     app.run(debug=True)
