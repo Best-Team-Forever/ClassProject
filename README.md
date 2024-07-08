@@ -98,7 +98,7 @@ In your repo's README, list your team name and roster with roles
 |-----------|-------------|
 | Document sprint forecast and rationale | Sprint forecast: We forecasted 10 user story points for this sprint based on yesterday's weather. Rationale: The first item on our backlog is our Sprint Retrospective. We prioritized and pulled stories to our Sprint 2 based on the value to the stakeholders, technical dependensies, and feasibility. Our main stakeholder, Dr. Brooke Breen, the radiologist wants to be able to upload mammograms in DICOM format - this is a new feature to our current image upload capabilities and second in our sprint backlog. Dr. Breen wants the mammogram analyzed with at least 80% accurately hence, improving the image analysis model is high priority and next on our product backlog. This is followed by improving analysis result page to enhance user experince and adding the feature for our radiologist, Dr. Breen, to add comments. |
 | Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Backlog.png |
-| Ensure stories are right-sized | Based on our estimating activity we believe our user stories are estimated correctly at [5, 3, 1, 1] are right sized |
+| Ensure stories are right-sized | Based on our estimating activity we believe our user stories are estimated correctly at [5, 3, 1, 1] and are right sized |
 | Decompose stories into tasks | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?assignee=712020%3Ada2d7207-605e-4bf9-944d-384e5ba55359%2Cunassigned&atlOrigin=eyJwIjoiaiIsImkiOiJjYTQ2NzQ3YzFjNTU0NDc3OGFlNGI5MGQxNDRjNTExMSJ9&cloudId=1234c6a6-c8dc-4879-bd64-e26c3505ca96&selectedIssue=SCRUM-17 |
 | Set up a kanban board for sprint backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1 |
 | Create and maintain a sprint burndown chart | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true |
@@ -111,7 +111,8 @@ In your repo's README, list your team name and roster with roles
 | Discuss past 24 hours' progress |  Included in above links |
 | Plan next 24 hours' work | Included in above links |
 | Identify and plan for impediments | Included in above links  |
-| Update task board and burndown chart daily | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true |
+| Update task board and burndown chart daily |Update 1: https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true
+Update 2: |
 
 ## Development Practices
 |Task| Our Submission                                                                                |
@@ -128,8 +129,8 @@ In your repo's README, list your team name and roster with roles
 |Task| Our Submission                                 |
 |-----------|------------------------------------------------|
 | Demonstrate working software on public system | https://plankton-app-bxgyc.ondigitalocean.app/ |
-| Involve at least one stakeholder and gather feedback | (Primary Stakeholder) Dr. Brooke Breen - Feedback <br> (Secondary Stakeholder) John Kirk - Medical Records Expert|
-| Conduct the review | video (3:40) Team + John : https://harvard.zoom.us/rec/share/e8z7tyoL63Zr76KI2e2qx7JXIPyMHQneaV4ZbHGmdCVYS4XGa9eb4NNxWaoSmdIt.aZC7hdxfu193w83m |
+| Involve at least one stakeholder and gather feedback | (Primary Stakeholder) Dr. Brooke Breen -  <br> (Secondary Stakeholder) John Kirk - Medical Records Expert|
+| Conduct the review | video Team + Dr. Breen : https://drive.google.com/file/d/1uM3t93qnhXlpFc4dNi3gK71OR89WCR3i/view?usp=share_link video (3:40) Team + John : https://harvard.zoom.us/rec/share/e8z7tyoL63Zr76KI2e2qx7JXIPyMHQneaV4ZbHGmdCVYS4XGa9eb4NNxWaoSmdIt.aZC7hdxfu193w83m |
 # Sprint Retrospective
 |Task|Our Submission|
 |-----------|-------------|
