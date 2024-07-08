@@ -89,6 +89,7 @@ def save_patient_info():
         os.rename(image_path, image_save_path)
 
         # Open the CSV file and append the new patient data
+        # update
         csv_file_path = os.path.join('patient_data.csv')
         with open(csv_file_path, mode='a', newline='') as file:
             writer = csv.writer(file)
