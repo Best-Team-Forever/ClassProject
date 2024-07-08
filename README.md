@@ -107,7 +107,7 @@ In your repo's README, list your team name and roster with roles
 |Task| Our Submission                                                                                    |
 |-----------|---------------------------------------------------------------------------------------------------|
 | Conduct Daily Scrums | Daily scrums ocurred in a hybrid format every day at Claverly Hall and Zoom. See links below |
-| Document at least one scrum | 5 July https://docs.google.com/document/d/1ErjoAG6LBV8I36tklmd7mf-Iisg-jMBIlqJb730RXXU/edit <br> 7 July https://docs.google.com/document/d/1-w3gKPUf8ZnZwl2rP6cxPQgbSK3q0IOi2x6KjFX2XWE/edit |
+| Document at least one scrum | 5 July https://docs.google.com/document/d/1ErjoAG6LBV8I36tklmd7mf-Iisg-jMBIlqJb730RXXU/edit |
 | Discuss past 24 hours' progress |  Included in above links |
 | Plan next 24 hours' work | Included in above links |
 | Identify and plan for impediments | Included in above links  |
