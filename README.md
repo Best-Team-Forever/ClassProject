@@ -19,12 +19,12 @@ In your repo's README, list your team name and roster with roles
 | David Rasmussen | Developer |
 
 ## Create a Product Vision
-|Task|Our Submission|
-|-----------|-------------|
-| Identify an open-source product to create and name it | DeepScan |
-| Articulate a far vision for the product | Saving lives through early breast cancer detection |
+|Task| Our Submission                                                                                     |
+|-----------|----------------------------------------------------------------------------------------------------|
+| Identify an open-source product to create and name it | DeepScan                                                                                           |
+| Articulate a far vision for the product | Saving lives through early breast cancer detection                                                 |
 | Articulate a near vision for the first version | A reliable AI tool for radiologists to identify early signs of breast cancer from mammogram images |
-| Identify at least three stakeholder types | Radiologist - Dr. Brooke Breen; Oncologist; Patient - Molly |
+| Identify at least three stakeholder types | Radiologist - Dr. Brooke Breen; Oncologist; Patient - Molly                                        |
 
 ## Stakeholder Analysis
 |Task|Our Submission|
@@ -94,39 +94,39 @@ In your repo's README, list your team name and roster with roles
 
 # Project Part 3: Second Sprint
 ## Sprint Planning
-|Task|Our Submission|
-|-----------|-------------|
+|Task| Our Submission                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Document sprint forecast and rationale | Sprint forecast: We forecasted 10 user story points for this sprint based on yesterday's weather. Rationale: The first item on our backlog is our Sprint Retrospective. We prioritized and pulled stories to our Sprint 2 based on the value to the stakeholders, technical dependensies, and feasibility. Our main stakeholder, Dr. Brooke Breen, the radiologist wants to be able to upload mammograms in DICOM format - this is a new feature to our current image upload capabilities and second in our sprint backlog. Dr. Breen wants the mammogram analyzed with at least 80% accurately hence, improving the image analysis model is high priority and next on our product backlog. This is followed by improving analysis result page to enhance user experince and adding the feature for our radiologist, Dr. Breen, to add comments. |
-| Pull appropriate stories into sprint backlog |doc/Sprint2Backlog.png |
-| Ensure stories are right-sized | |
-| Decompose stories into tasks | |
-| Set up a kanban board for sprint backlog |doc/Sprint2KanbanBoard.png |
-| Create and maintain a sprint burndown chart | |
+| Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Backlog.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Ensure stories are right-sized | Based on our estimating activity we believe our user stories are estimated correctly at [5, 3, 1, 1] are right sized                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Decompose stories into tasks | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2UserStoryTasks.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Set up a kanban board for sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2KanbanBoard.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Create and maintain a sprint burndown chart | https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?gid=2116265334#gid=2116265334                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 ## Sprint Execution and Monitoring
-|Task|Our Submission|
-|-----------|-------------|
-| Conduct Daily Scrums | |
-| Document at least one scrum | |
-| Discuss past 24 hours' progress | |
-| Plan next 24 hours' work | |
-| Identify and plan for impediments | |
-| Update task board and burndown chart daily | |
+|Task| Our Submission                                                                                    |
+|-----------|---------------------------------------------------------------------------------------------------|
+| Conduct Daily Scrums |                                                                                                   |
+| Document at least one scrum |                                                                                                   |
+| Discuss past 24 hours' progress |                                                                                                   |
+| Plan next 24 hours' work |                                                                                                   |
+| Identify and plan for impediments |                                                                                                   |
+| Update task board and burndown chart daily | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Progress2Kanban.png <br/> https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?gid=2116265334#gid=2116265334 |
 ## Development Practices
-|Task|Our Submission|
-|-----------|-------------|
-| Pair or Mob Programming | |
-| Test-Driven Development | |
-| Continuous Integration | |
+|Task| Our Submission                                                                                |
+|-----------|-----------------------------------------------------------------------------------------------|
+| Pair or Mob Programming | ADD IMAGE                                                                                     |
+| Test-Driven Development | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py          |
+| Continuous Integration | https://github.com/Best-Team-Forever/ClassProject/blob/main/.github/workflows/python-app.yml  |
 # Continuous Delivery
 |Task|Our Submission|
 |-----------|-------------|
-| Implement and provide evidence of a working CD system | |
+| Implement and provide evidence of a working CD system |https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/cicd_logs.txt |
 # Sprint Review
-|Task|Our Submission|
-|-----------|-------------|
+|Task| Our Submission                                 |
+|-----------|------------------------------------------------|
 | Demonstrate working software on public system | https://plankton-app-bxgyc.ondigitalocean.app/ |
-| Involve at least one stakeholder and gather feedback | John Kirk, Medical Records expert at the University of Utah hospital. Feedback includes UI improvements, change the precision on the prediction result, find a place to view patient details along with the image. <br> https://harvard.zoom.us/rec/play/xMybUJDOQurV5F7meq0cnv6tQGZD8URKokCTuUtPPb6Dndi83sqgvQP4JdYGScPFl6k24R-gbHseoQeE.y6NSZnGWbGN3boT1?canPlayFromShare=true&from=share_recording_detail&startTime=1720280927000&componentName=rec-play&originRequestUrl=https%3A%2F%2Fharvard.zoom.us%2Frec%2Fshare%2FQf8Jnf7E0g5e9mnqW_g1Y5TwVSwcGZomfCTmIo_LL-ZWPLPKxwg0ddeSBKb6KnKW.v4w47Lj0AyNAoKNm%3FstartTime%3D1720280927000 |
-| Conduct the review | |
+| Involve at least one stakeholder and gather feedback | Dr. Brooke Breen - Feedback                    |
+| Conduct the review |                                                |
 # Sprint Retrospective
 |Task|Our Submission|
 |-----------|-------------|
