@@ -102,21 +102,25 @@ In your repo's README, list your team name and roster with roles
 | Decompose stories into tasks | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?assignee=712020%3Ada2d7207-605e-4bf9-944d-384e5ba55359%2Cunassigned&atlOrigin=eyJwIjoiaiIsImkiOiJjYTQ2NzQ3YzFjNTU0NDc3OGFlNGI5MGQxNDRjNTExMSJ9&cloudId=1234c6a6-c8dc-4879-bd64-e26c3505ca96&selectedIssue=SCRUM-17 |
 | Set up a kanban board for sprint backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1 |
 | Create and maintain a sprint burndown chart | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true |
+
 ## Sprint Execution and Monitoring
 |Task| Our Submission                                                                                    |
 |-----------|---------------------------------------------------------------------------------------------------|
 | Conduct Daily Scrums | Daily scrums ocurred in a hybrid format every day at Claverly Hall and Zoom. See links below |
-| Document at least one scrum | https://docs.google.com/document/d/1ErjoAG6LBV8I36tklmd7mf-Iisg-jMBIlqJb730RXXU/edit <br> https://docs.google.com/document/d/1-w3gKPUf8ZnZwl2rP6cxPQgbSK3q0IOi2x6KjFX2XWE/edit |
+| Document at least one scrum | 5 July https://docs.google.com/document/d/1ErjoAG6LBV8I36tklmd7mf-Iisg-jMBIlqJb730RXXU/edit <br> 
+7 July https://docs.google.com/document/d/1-w3gKPUf8ZnZwl2rP6cxPQgbSK3q0IOi2x6KjFX2XWE/edit |
 | Discuss past 24 hours' progress |  Included in above links |
 | Plan next 24 hours' work | Included in above links |
 | Identify and plan for impediments | Included in above links  |
 | Update task board and burndown chart daily | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true |
+
 ## Development Practices
 |Task| Our Submission                                                                                |
 |-----------|-----------------------------------------------------------------------------------------------|
 | Pair or Mob Programming | New mob programming session <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/mobprogramming.jpg |
 | Test-Driven Development | 20 tests passing screenshot: https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/20testsPassing.jpg <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py          |
 | Continuous Integration | https://github.com/Best-Team-Forever/ClassProject/blob/main/.github/workflows/python-app.yml  |
+
 # Continuous Delivery
 |Task|Our Submission|
 |-----------|-------------|
