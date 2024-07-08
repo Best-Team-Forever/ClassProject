@@ -10,6 +10,9 @@ import uuid
 
 app = Flask(__name__)
 
+# Disable template caching
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
 # Load the pre-trained DenseNet121 model
 model = tf.keras.models.load_model('fine_tuned_weights.h5')
 
@@ -45,8 +48,10 @@ def upload_file():
         # Ensure the uploads directory exists
         uploads_dir = 'uploads'
         os.makedirs(uploads_dir, exist_ok=True)
+        print(f"Uploads directory: {uploads_dir}")
 
         dicom_path = os.path.join(uploads_dir, file.filename)
+        print(f"DICOM path: {dicom_path}")
         file.save(dicom_path)
 
         try:
@@ -57,10 +62,14 @@ def upload_file():
 
             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
             annotated_image_path = os.path.join('static', 'annotated_image.png')
-            print("annotated_image_path: " + annotated_image_path)
+            print(f"Annotated image path: {annotated_image_path}")
             cv2.imwrite(annotated_image_path, image_rgb)
 
-            return render_template('result.html', label=label, probability=probability, image_path='static/annotated_image.png')
+            # Append cache buster to the image path
+            image_path = f'static/annotated_image.png?{uuid.uuid4()}'
+            print(f"Image path with cache buster: {image_path}")
+
+            return render_template('result.html', label=label, probability=probability, image_path=image_path)
         except Exception as e:
             return f"Error processing file {dicom_path}: {e}"
 
@@ -81,17 +90,17 @@ def save_patient_info():
         # Define the directory and file path for the image
         image_dir = os.path.join('patient_images')
         image_save_path = os.path.join(image_dir, f"{image_id}.png")
-        print("image_save_path: " + image_save_path)
+        print(f"Image save path: {image_save_path}")
 
         # Ensure the directory exists
         os.makedirs(image_dir, exist_ok=True)
 
         # Move the uploaded image to the designated directory
-        os.rename(image_path, image_save_path)
+        os.rename(image_path.split('?')[0], image_save_path)
 
         # Open the CSV file and append the new patient data
-        # update
         csv_file_path = os.path.join('patient_data.csv')
+        print(f"CSV file path: {csv_file_path}")
         with open(csv_file_path, mode='a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([patient_id, first_name, last_name, comments, label, probability, image_save_path])
@@ -109,8 +118,10 @@ def save_patient_info():
 @app.route('/results')
 def results():
     entries = []
-    if os.path.exists('patient_data.csv'):
-        with open('patient_data.csv', mode='r') as file:
+    csv_file_path = 'patient_data.csv'
+    print(f"CSV file path for reading: {csv_file_path}")
+    if os.path.exists(csv_file_path):
+        with open(csv_file_path, mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
                 entries.append({
@@ -126,22 +137,33 @@ def results():
 
 @app.route('/result/<patient_id>')
 def result(patient_id):
-    if os.path.exists('patient_data.csv'):
-        with open('patient_data.csv', mode='r') as file:
+    csv_file_path = 'patient_data.csv'
+    print(f"CSV file path for specific patient: {csv_file_path}")
+    if os.path.exists(csv_file_path):
+        with open(csv_file_path, mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
                 if row[0] == patient_id:
-                    return render_template('result.html', label=row[4], probability=row[5], image_path=row[6], 
+                    image_path = f"{row[6]}?{uuid.uuid4()}"  # Append cache buster
+                    print(f"Patient image path with cache buster: {image_path}")
+                    return render_template('result.html', label=row[4], probability=row[5], image_path=image_path, 
                                            first_name=row[1], last_name=row[2], comments=row[3])
     return "Patient not found"
 
 @app.route('/patient_images/<filename>')
 def patient_images(filename):
+    file_path = os.path.join('patient_images', filename)
+    print(f"Serving patient image: {file_path}")
     return send_from_directory('patient_images', filename)
 
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.after_request
+def add_cache_control(response):
+    response.headers['Cache-Control'] = 'no-store'
+    return response
 
 if __name__ == "__main__":
     os.makedirs('uploads', exist_ok=True)
