@@ -133,7 +133,7 @@ In your repo's README, list your team name and roster with roles
 # Sprint Retrospective
 |Task|Our Submission|
 |-----------|-------------|
-| All team members participate | |
+| All team members participate | All five members in our team participated via zoom in the morning of 8th July. |
 | Identify improvement action | https://docs.google.com/document/d/1qVi3pq895ZWbWFqicddQ9hQjLFikdwf_xgT47D0uiKQ/edit?usp=sharing |
 | Make a concrete plan for implementing the change | https://docs.google.com/document/d/1qVi3pq895ZWbWFqicddQ9hQjLFikdwf_xgT47D0uiKQ/edit?usp=sharing |
 # Product Backlog Refinement
