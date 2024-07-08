@@ -105,11 +105,11 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Execution and Monitoring
 |Task| Our Submission                                                                                    |
 |-----------|---------------------------------------------------------------------------------------------------|
-| Conduct Daily Scrums |                                                                                                   |
-| Document at least one scrum |                                                                                                   |
-| Discuss past 24 hours' progress |                                                                                                   |
-| Plan next 24 hours' work |                                                                                                   |
-| Identify and plan for impediments |                                                                                                   |
+| Conduct Daily Scrums | Daily scrums ocurred in a hybrid format every day at Claverly Hall and Zoom. See links below |
+| Document at least one scrum | https://docs.google.com/document/d/1ErjoAG6LBV8I36tklmd7mf-Iisg-jMBIlqJb730RXXU/edit <br> https://docs.google.com/document/d/1-w3gKPUf8ZnZwl2rP6cxPQgbSK3q0IOi2x6KjFX2XWE/edit |
+| Discuss past 24 hours' progress |  Included in above links |
+| Plan next 24 hours' work | Included in above links |
+| Identify and plan for impediments | Included in above links  |
 | Update task board and burndown chart daily | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Progress2Kanban.png <br/> https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?gid=2116265334#gid=2116265334 |
 ## Development Practices
 |Task| Our Submission                                                                                |
