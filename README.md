@@ -30,7 +30,7 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-----------|-------------|
 | Identify a real person as one of your stakeholders | Dr. Brooke Breen |
-| Construct a detailed user persona for this stakeholder | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/User%20Persona.jpg |
+| Construct a detailed user persona for this stakeholder | https://www.canva.com/design/DAGJorcYYMA/osgRbcedOuo-mqMnOcCwzg/edit?utm_content=DAGJorcYYMA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton |
 
 ## Create Initial Product Backlog
 |Task|Our Submission|
@@ -96,12 +96,12 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Planning
 |Task| Our Submission|
 |-----------|-------------|
-| Document sprint forecast and rationale | Sprint forecast: We forecasted 10 user story points for this sprint based on yesterday's weather. Rationale: The first item on our backlog is our Sprint Retrospective. We prioritized and pulled stories to our Sprint 2 based on the value to the stakeholders, technical dependensies, and feasibility. Our main stakeholder, Dr. Brooke Breen, the radiologist wants to be able to upload mammograms in DICOM format - this is a new feature to our current image upload capabilities and second in our sprint backlog. Dr. Breen wants the mammogram analyzed with at least 80% accurately hence, improving the image analysis model is high priority and next on our product backlog. This is followed by improving analysis result page to enhance user experince and adding the feature for our radiologist, Dr. Breen, to add comments. |
+| Document sprint forecast and rationale | Sprint forecast: We forecasted 10 user story points for this sprint based on yesterday's weather. Rationale: The first item on our backlog is our Sprint Retrospective. We prioritized and pulled stories to our Sprint 2 based on the value to the stakeholders, technical dependensies, and feasibility. Our main stakeholder, Dr. Brooke Breen, the radiologist wants to be able to upload mammograms in DICOM format - this is a new feature to our current image upload capabilities and second in our sprint backlog. Dr. Breen wants the mammogram analyzed more accurately hence, improving the image analysis model is high priority and next on our product backlog. This is followed by improving analysis result page to enhance user experince and adding the feature for our radiologist, Dr. Breen, to add comments. |
 | Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Backlog.png |
 | Ensure stories are right-sized | Based on our estimating activity we believe our user stories are estimated correctly at [5, 3, 1, 1] and are right sized |
-| Decompose stories into tasks | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?assignee=712020%3Ada2d7207-605e-4bf9-944d-384e5ba55359%2Cunassigned&atlOrigin=eyJwIjoiaiIsImkiOiJjYTQ2NzQ3YzFjNTU0NDc3OGFlNGI5MGQxNDRjNTExMSJ9&cloudId=1234c6a6-c8dc-4879-bd64-e26c3505ca96&selectedIssue=SCRUM-17 |
+| Decompose stories into tasks |Progress screenshots: https://docs.google.com/document/d/15LH-M_nzlH6BowKT1EV6wWUp-rMwuFD8VF5T9JoqDYE/edit?usp=sharing Jira: https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?assignee=712020%3Ada2d7207-605e-4bf9-944d-384e5ba55359%2Cunassigned&atlOrigin=eyJwIjoiaiIsImkiOiJjYTQ2NzQ3YzFjNTU0NDc3OGFlNGI5MGQxNDRjNTExMSJ9&cloudId=1234c6a6-c8dc-4879-bd64-e26c3505ca96&selectedIssue=SCRUM-17 |
 | Set up a kanban board for sprint backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1 |
-| Create and maintain a sprint burndown chart | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true |
+| Create and maintain a sprint burndown chart |https://docs.google.com/document/d/15LH-M_nzlH6BowKT1EV6wWUp-rMwuFD8VF5T9JoqDYE/edit?usp=sharing  |
 
 ## Sprint Execution and Monitoring
 |Task| Our Submission |
@@ -111,8 +111,7 @@ In your repo's README, list your team name and roster with roles
 | Discuss past 24 hours' progress |  Included in above links |
 | Plan next 24 hours' work | Included in above links |
 | Identify and plan for impediments | Included in above links  |
-| Update task board and burndown chart daily |Update 1: https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true
-Update 2: |
+| Update task board and burndown chart daily | Update images: https://docs.google.com/document/d/15LH-M_nzlH6BowKT1EV6wWUp-rMwuFD8VF5T9JoqDYE/edit?usp=sharing  https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?gid=2116265334#gid=2116265334 |
 
 ## Development Practices
 |Task| Our Submission                                                                                |
@@ -130,7 +129,11 @@ Update 2: |
 |-----------|------------------------------------------------|
 | Demonstrate working software on public system | https://plankton-app-bxgyc.ondigitalocean.app/ |
 | Involve at least one stakeholder and gather feedback | (Primary Stakeholder) Dr. Brooke Breen -  <br> (Secondary Stakeholder) John Kirk - Medical Records Expert|
-| Conduct the review | video Team + Dr. Breen : https://drive.google.com/file/d/1uM3t93qnhXlpFc4dNi3gK71OR89WCR3i/view?usp=share_link video (3:40) Team + John : https://harvard.zoom.us/rec/share/e8z7tyoL63Zr76KI2e2qx7JXIPyMHQneaV4ZbHGmdCVYS4XGa9eb4NNxWaoSmdIt.aZC7hdxfu193w83m |
+| Conduct the review | We conducted our main sprint review with our primary stakeholder - Dr. Brooke Breen, MD, radiologist, on Sunday July 8 due to her availability, which is a day earlier than our sprint ended. In this review we presented our product demo, shared our vision of the product, and got valuable feedback on our MVP. We incorporated this feedback to improve our product during this current sprint and adjusted our product backlog for our next sprint.
+Video link : https://drive.google.com/file/d/1uM3t93qnhXlpFc4dNi3gK71OR89WCR3i/view?usp=share_link 
+We got additional expert feedback from John Kirk, medical records specialist, during this sprint on how to best incorporate patient information and data.
+Video link : https://harvard.zoom.us/rec/share/e8z7tyoL63Zr76KI2e2qx7JXIPyMHQneaV4ZbHGmdCVYS4XGa9eb4NNxWaoSmdIt.aZC7hdxfu193w83m
+ |
 # Sprint Retrospective
 |Task|Our Submission|
 |-----------|-------------|
