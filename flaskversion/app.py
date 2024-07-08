@@ -7,6 +7,7 @@ import os
 import csv
 from tensorflow.keras.applications.densenet import preprocess_input
 import uuid
+import time
 
 app = Flask(__name__)
 
@@ -94,6 +95,17 @@ def save_patient_info():
 
         # Ensure the directory exists
         os.makedirs(image_dir, exist_ok=True)
+
+        # Check for the existence of the image file before moving it
+        max_attempts = 10
+        attempts = 0
+        while not os.path.exists(image_path.split('?')[0]) and attempts < max_attempts:
+            print(f"Waiting for file to be saved: {image_path.split('?')[0]}")
+            time.sleep(0.5)
+            attempts += 1
+
+        if not os.path.exists(image_path.split('?')[0]):
+            raise Exception("Image file not found after waiting.")
 
         # Move the uploaded image to the designated directory
         os.rename(image_path.split('?')[0], image_save_path)
