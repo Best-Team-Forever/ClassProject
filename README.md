@@ -110,7 +110,7 @@ In your repo's README, list your team name and roster with roles
 | Discuss past 24 hours' progress |  Included in above links |
 | Plan next 24 hours' work | Included in above links |
 | Identify and plan for impediments | Included in above links  |
-| Update task board and burndown chart daily | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Progress2Kanban.png <br/> https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?gid=2116265334#gid=2116265334 |
+| Update task board and burndown chart daily | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true |
 ## Development Practices
 |Task| Our Submission                                                                                |
 |-----------|-----------------------------------------------------------------------------------------------|
