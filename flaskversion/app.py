@@ -57,6 +57,7 @@ def upload_file():
 
             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
             annotated_image_path = os.path.join('static', 'annotated_image.png')
+            print("annotated_image_path: " + annotated_image_path)
             cv2.imwrite(annotated_image_path, image_rgb)
 
             return render_template('result.html', label=label, probability=probability, image_path='static/annotated_image.png')
