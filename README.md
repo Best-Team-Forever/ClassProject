@@ -100,8 +100,8 @@ In your repo's README, list your team name and roster with roles
 | Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Backlog.png |
 | Ensure stories are right-sized | Based on our estimating activity we believe our user stories are estimated correctly at [5, 3, 1, 1] are right sized |
 | Decompose stories into tasks | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?assignee=712020%3Ada2d7207-605e-4bf9-944d-384e5ba55359%2Cunassigned&atlOrigin=eyJwIjoiaiIsImkiOiJjYTQ2NzQ3YzFjNTU0NDc3OGFlNGI5MGQxNDRjNTExMSJ9&cloudId=1234c6a6-c8dc-4879-bd64-e26c3505ca96&selectedIssue=SCRUM-17 |
-| Set up a kanban board for sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2KanbanBoard.png |
-| Create and maintain a sprint burndown chart | https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?gid=2116265334#gid=2116265334 |
+| Set up a kanban board for sprint backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1 |
+| Create and maintain a sprint burndown chart | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true |
 ## Sprint Execution and Monitoring
 |Task| Our Submission                                                                                    |
 |-----------|---------------------------------------------------------------------------------------------------|
