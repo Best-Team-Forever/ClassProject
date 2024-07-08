@@ -125,15 +125,11 @@ In your repo's README, list your team name and roster with roles
 |-----------|-------------|
 | Implement and provide evidence of a working CD system |https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/cicd_logs.txt |
 # Sprint Review
-|Task| Our Submission                                 |
+|Task| Our Submission|
 |-----------|------------------------------------------------|
 | Demonstrate working software on public system | https://plankton-app-bxgyc.ondigitalocean.app/ |
 | Involve at least one stakeholder and gather feedback | (Primary Stakeholder) Dr. Brooke Breen -  <br> (Secondary Stakeholder) John Kirk - Medical Records Expert|
-| Conduct the review | We conducted our main sprint review with our primary stakeholder - Dr. Brooke Breen, MD, radiologist, on Sunday July 8 due to her availability, which is a day earlier than our sprint ended. In this review we presented our product demo, shared our vision of the product, and got valuable feedback on our MVP. We incorporated this feedback to improve our product during this current sprint and adjusted our product backlog for our next sprint.
-Video link : https://drive.google.com/file/d/1uM3t93qnhXlpFc4dNi3gK71OR89WCR3i/view?usp=share_link 
-We got additional expert feedback from John Kirk, medical records specialist, during this sprint on how to best incorporate patient information and data.
-Video link : https://harvard.zoom.us/rec/share/e8z7tyoL63Zr76KI2e2qx7JXIPyMHQneaV4ZbHGmdCVYS4XGa9eb4NNxWaoSmdIt.aZC7hdxfu193w83m
- |
+| Conduct the review | We conducted our main sprint review with our primary stakeholder - Dr. Brooke Breen, MD, radiologist, on Sunday July 8 due to her availability, which is a day earlier than our sprint ended. In this review we presented our product demo, shared our vision of the product, and got valuable feedback on our MVP. We incorporated this feedback to improve our product during this current sprint and adjusted our product backlog for our next sprint. Video link : https://drive.google.com/file/d/1uM3t93qnhXlpFc4dNi3gK71OR89WCR3i/view?usp=share_link We got additional expert feedback from John Kirk, medical records specialist, during this sprint on how to best incorporate patient information and data. Video link : https://harvard.zoom.us/rec/share/e8z7tyoL63Zr76KI2e2qx7JXIPyMHQneaV4ZbHGmdCVYS4XGa9eb4NNxWaoSmdIt.aZC7hdxfu193w83m |
 # Sprint Retrospective
 |Task|Our Submission|
 |-----------|-------------|
