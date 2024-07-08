@@ -125,8 +125,8 @@ In your repo's README, list your team name and roster with roles
 |Task| Our Submission                                 |
 |-----------|------------------------------------------------|
 | Demonstrate working software on public system | https://plankton-app-bxgyc.ondigitalocean.app/ |
-| Involve at least one stakeholder and gather feedback | Dr. Brooke Breen - Feedback                    |
-| Conduct the review |                                                |
+| Involve at least one stakeholder and gather feedback | (Primary Stakeholder) Dr. Brooke Breen - Feedback <br> (Secondary Stakeholder) John Kirk - Medical Records Expert|
+| Conduct the review | video (3:40) Team + John : https://harvard.zoom.us/rec/share/e8z7tyoL63Zr76KI2e2qx7JXIPyMHQneaV4ZbHGmdCVYS4XGa9eb4NNxWaoSmdIt.aZC7hdxfu193w83m |
 # Sprint Retrospective
 |Task|Our Submission|
 |-----------|-------------|
