@@ -131,7 +131,7 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-----------|-------------|
 | All team members participate | |
-| Identify improvement action | |
-| Make a concrete plan for implementing the change | |
+| Identify improvement action | https://docs.google.com/document/d/1qVi3pq895ZWbWFqicddQ9hQjLFikdwf_xgT47D0uiKQ/edit?usp=sharing |
+| Make a concrete plan for implementing the change | https://docs.google.com/document/d/1qVi3pq895ZWbWFqicddQ9hQjLFikdwf_xgT47D0uiKQ/edit?usp=sharing |
 # Product Backlog Refinement
 | Ensure all PBIs are true user stories | |
