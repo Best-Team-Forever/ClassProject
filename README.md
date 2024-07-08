@@ -104,8 +104,8 @@ In your repo's README, list your team name and roster with roles
 | Create and maintain a sprint burndown chart | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1?isInsightsOpen=true |
 
 ## Sprint Execution and Monitoring
-|Task| Our Submission                                                                                    |
-|-----------|---------------------------------------------------------------------------------------------------|
+|Task| Our Submission |
+|-----------|--------|
 | Conduct Daily Scrums | Daily scrums ocurred in a hybrid format every day at Claverly Hall and Zoom. See links below |
 | Document at least one scrum | 5 July https://docs.google.com/document/d/1ErjoAG6LBV8I36tklmd7mf-Iisg-jMBIlqJb730RXXU/edit |
 | Discuss past 24 hours' progress |  Included in above links |
@@ -115,10 +115,10 @@ In your repo's README, list your team name and roster with roles
 
 ## Development Practices
 |Task| Our Submission                                                                                |
-|-----------|-----------------------------------------------------------------------------------------------|
+|-----------|-----|
 | Pair or Mob Programming | New mob programming session <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/mobprogramming.jpg |
 | Test-Driven Development | 20 tests passing screenshot: https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/20testsPassing.jpg <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py          |
-| Continuous Integration | https://github.com/Best-Team-Forever/ClassProject/blob/main/.github/workflows/python-app.yml  |
+| Continuous Integration | We only work in the 'main' branch and other branches are no long-lived code branaches. <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/.github/workflows/python-app.yml  |
 
 # Continuous Delivery
 |Task|Our Submission|
