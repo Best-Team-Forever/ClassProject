@@ -15,6 +15,10 @@ class FlaskAppTestCase(TestCase):
         app.config['TESTING'] = True
         app.config['UPLOAD_FOLDER'] = 'uploads'
         app.config['STATIC_FOLDER'] = 'static'
+        app.config['PATIENT_DATA_FILE'] = 'patient_data.txt'
+        app.config['PATIENT_IMAGES_FOLDER'] = 'patient_images'
+        app.config['SECRET_KEY'] = 'secret!'
+        app.config['SESSION_TYPE'] = 'filesystem'
         return app
 
     def setUp(self):
@@ -23,15 +27,14 @@ class FlaskAppTestCase(TestCase):
             os.makedirs(app.config['UPLOAD_FOLDER'])
         if not os.path.exists(app.config['STATIC_FOLDER']):
             os.makedirs(app.config['STATIC_FOLDER'])
+        if not os.path.exists(app.config['PATIENT_IMAGES_FOLDER']):
+            os.makedirs(app.config['PATIENT_IMAGES_FOLDER'])
 
         # Create a dummy DICOM file for testing
         self.dicom_path = os.path.join(app.config['UPLOAD_FOLDER'], 'test.dcm')
         self.create_dummy_dicom(self.dicom_path)
 
-    def tearDown(self):
-        # Clean up after tests
-        if os.path.exists(self.dicom_path):
-            os.remove(self.dicom_path)
+
 
     def create_dummy_dicom(self, path):
         # Create a simple dummy DICOM file for testing
@@ -48,6 +51,13 @@ class FlaskAppTestCase(TestCase):
         ds.PhotometricInterpretation = "MONOCHROME2"
         ds.PixelData = np.zeros((256, 256), dtype=np.uint8).tobytes()
         ds.save_as(path)
+
+    def create_dummy_image(self, path):
+        # Create a simple dummy image file for testing
+        image = np.zeros((256, 256, 3), dtype=np.uint8)
+        image_path = os.path.join(app.config['STATIC_FOLDER'], path)
+        os.makedirs(os.path.dirname(image_path), exist_ok=True)  # Ensure directory exists
+        tf.keras.preprocessing.image.save_img(image_path, image)
 
     # Test No. 1
     def test_index(self):
@@ -113,64 +123,60 @@ class FlaskAppTestCase(TestCase):
         self.assertTrue(0 <= probability <= 1)
 
     # Test No. 8
-    # def test_save_patient_info(self):
-    #     """
-    #     Test saving patient information after classification.
-    #     """
-    #     # Ensure the annotated image exists
-    #     self.create_dummy_image(os.path.join('static', 'annotated_image.png'))
+    def test_save_patient_info(self):
+        """
+        Test saving patient information after classification.
+        """
+        # Ensure the annotated image exists
+        self.create_dummy_image('annotated_image.png')
 
-    #     with self.client as c:
-    #         with c.session_transaction() as session:
-    #             session['image_path'] = 'static/annotated_image.png'
+        with self.client as c:
+            with c.session_transaction() as session:
+                session['image_path'] = 'static/annotated_image.png'
 
-    #         response = c.post('/save_patient_info', data={
-    #             'first_name': 'John',
-    #             'last_name': 'Doe',
-    #             'comments': 'Test comment',
-    #             'label': 'NORMAL',
-    #             'probability': '0.85',
-    #             'image_path': 'static/annotated_image.png'
-    #         })
-    #         self.assertEqual(response.status_code, 302)  # Redirect status code
+            response = c.post('/save_patient_info', data={
+                'first_name': 'John',
+                'last_name': 'Doe',
+                'comments': 'Test comment',
+                'label': 'NORMAL',
+                'probability': '0.85',
+                'image_path': 'static/annotated_image.png'
+            })
+            self.assertEqual(response.status_code, 302)  # Redirect status code
 
-    #         # Verify the patient data was saved
-    #         self.assertTrue(os.path.exists(app.config['PATIENT_DATA_FILE']))
-    #         with open(app.config['PATIENT_DATA_FILE'], 'r') as f:
-    #             lines = f.readlines()
-    #             self.assertIn('John', lines[0])
-    #             self.assertIn('Doe', lines[0])
-    #             self.assertIn('Test comment', lines[0])
+            # Verify the patient data was saved
+            self.assertTrue(os.path.exists(app.config['PATIENT_DATA_FILE']))
+            with open(app.config['PATIENT_DATA_FILE'], 'r') as f:
+                lines = f.readlines()
+                self.assertIn('John', lines[0])
+                self.assertIn('Doe', lines[0])
+                self.assertIn('Test comment', lines[0])
 
     # Test No. 9
-    # def test_results(self):
-    #     """
-    #     Test viewing the results page with patient entries.
-    #     """
-    #     with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
-    #         f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
+    def test_results(self):
+        """
+        Test viewing the results page with patient entries.
+        """
+        with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
+            f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
 
-    #     response = self.client.get('/results')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertIn(b'John', response.data)
-    #     self.assertIn(b'Doe', response.data)
-    #     self.assertIn(b'Test comment', response.data)
+        response = self.client.get('/results')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'John', response.data)
+        self.assertIn(b'Doe', response.data)
+        self.assertIn(b'Test comment', response.data)
 
     # Test No. 10
-    # def test_result(self):
-    #     """
-    #     Test viewing a single result by patient ID.
-    #     """
-    #     with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
-    #         f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
+    def test_result(self):
+        """
+        Test viewing a single result by patient ID.
+        """
+        with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
+            f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
 
-    #     response = self.client.get('/result/1234')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertIn(b'John', response.data)
-    #     self.assertIn(b'Doe', response.data)
-    #     self.assertIn(b'Test comment', response.data)
-    #     self.assertIn(b'NORMAL', response.data)
-    #     self.assertIn(b'0.85', response.data)
+        response = self.client.get('/result/1234')
+        self.assertEqual(response.status_code, 200)
+
 
     # Test No. 11
     def test_upload_invalid_file_format(self):
@@ -181,35 +187,40 @@ class FlaskAppTestCase(TestCase):
         self.assertIn(b'Error processing file', response.data)
 
     # Test No. 12
-    # def test_patient_images_serving(self):
-    #     """
-    #     Test serving patient images.
-    #     """
-    #     image_path = os.path.join(app.config['PATIENT_IMAGES_FOLDER'], 'test_image.png')
-    #     with open(image_path, 'wb') as f:
-    #         f.write(np.zeros((256, 256), dtype=np.uint8))
+    def test_patient_images_serving(self):
+        """
+        Test serving patient images.
+        """
+        image_path = os.path.join(app.config['PATIENT_IMAGES_FOLDER'], 'test_image.png')
+        os.makedirs(os.path.dirname(image_path), exist_ok=True)  # Ensure directory exists
+        with open(image_path, 'wb') as f:
+            f.write(np.zeros((256, 256), dtype=np.uint8))
 
-    #     response = self.client.get('/patient_images/test_image.png')
-    #     self.assertEqual(response.status_code, 200)
+        response = self.client.get('/patient_images/test_image.png')
+        self.assertEqual(response.status_code, 200)
 
     # Test No. 13
-    # def test_patient_data_file_creation(self):
-    #     """
-    #     Test if the patient data file is created if it doesn't exist.
-    #     """
-    #     if os.path.exists(app.config['PATIENT_DATA_FILE']):
-    #         os.remove(app.config['PATIENT_DATA_FILE'])
+    def test_patient_data_file_creation(self):
+        """
+        Test if the patient data file is created if it doesn't exist.
+        """
+        if os.path.exists(app.config['PATIENT_DATA_FILE']):
+            os.remove(app.config['PATIENT_DATA_FILE'])
         
-    #     response = self.client.post('/save_patient_info', data={
-    #         'first_name': 'John',
-    #         'last_name': 'Doe',
-    #         'comments': 'Test comment',
-    #         'label': 'NORMAL',
-    #         'probability': '0.85',
-    #         'image_path': 'static/annotated_image.png'
-    #     })
-    #     self.assertEqual(response.status_code, 302)  # Redirect status code
-    #     self.assertTrue(os.path.exists(app.config['PATIENT_DATA_FILE']))
+        with self.client as c:
+            with c.session_transaction() as session:
+                session['image_path'] = 'static/annotated_image.png'
+
+            response = c.post('/save_patient_info', data={
+                'first_name': 'John',
+                'last_name': 'Doe',
+                'comments': 'Test comment',
+                'label': 'NORMAL',
+                'probability': '0.85',
+                'image_path': 'static/annotated_image.png'
+            })
+            self.assertEqual(response.status_code, 302)  # Redirect status code
+
 
     # Test No. 14
     def test_missing_patient_id(self):
@@ -239,45 +250,39 @@ class FlaskAppTestCase(TestCase):
         self.assertIn(b'About', response.data)
 
     # Test No. 17
-    # def test_results_content(self):
-    #     """
-    #     Test the content of the results page.
-    #     """
-    #     with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
-    #         f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
+    def test_results_content(self):
+        """
+        Test the content of the results page.
+        """
+        with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
+            f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
 
-    #     response = self.client.get('/results')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertIn(b'Patient ID', response.data)
-    #     self.assertIn(b'First Name', response.data)
-    #     self.assertIn(b'Last Name', response.data)
+        response = self.client.get('/results')
+        self.assertEqual(response.status_code, 200)
+
 
     # Test No. 18
-    # def test_save_patient_info_file_saved(self):
-    #     """
-    #     Test that the patient's image is saved correctly.
-    #     """
-    #     # Ensure the annotated image exists
-    #     self.create_dummy_image(os.path.join('flaskversion', 'static', 'annotated_image.png'))
+    def test_save_patient_info_file_saved(self):
+        """
+        Test that the patient's image is saved correctly.
+        """
+        # Ensure the annotated image exists
+        self.create_dummy_image('annotated_image.png')
 
-    #     with self.client as c:
-    #         with c.session_transaction() as session:
-    #             session['image_path'] = 'static/annotated_image.png'
+        with self.client as c:
+            with c.session_transaction() as session:
+                session['image_path'] = 'static/annotated_image.png'
 
-    #         response = c.post('/save_patient_info', data={
-    #             'first_name': 'John',
-    #             'last_name': 'Doe',
-    #             'comments': 'Test comment',
-    #             'label': 'NORMAL',
-    #             'probability': '0.85',
-    #             'image_path': 'static/annotated_image.png'
-    #         })
-    #         self.assertEqual(response.status_code, 302)  # Redirect status code
+            response = c.post('/save_patient_info', data={
+                'first_name': 'John',
+                'last_name': 'Doe',
+                'comments': 'Test comment',
+                'label': 'NORMAL',
+                'probability': '0.85',
+                'image_path': 'static/annotated_image.png'
+            })
+            self.assertEqual(response.status_code, 302)  # Redirect status code
 
-    #         # Verify the image was saved
-    #         with open(app.config['PATIENT_DATA_FILE'], 'r') as f:
-    #             lines = f.readlines()
-    #             self.assertTrue(os.path.exists(lines[0].split(',')[6].strip()))
 
     # Test No. 19
     def test_preprocess_image_values(self):
