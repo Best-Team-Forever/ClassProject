@@ -114,7 +114,7 @@ In your repo's README, list your team name and roster with roles
 ## Development Practices
 |Task| Our Submission                                                                                |
 |-----------|-----------------------------------------------------------------------------------------------|
-| Pair or Mob Programming | ADD IMAGE                                                                                     |
+| Pair or Mob Programming | New mob programming session <br> https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/mobprogramming.jpg |
 | Test-Driven Development | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py          |
 | Continuous Integration | https://github.com/Best-Team-Forever/ClassProject/blob/main/.github/workflows/python-app.yml  |
 # Continuous Delivery
