@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 # Disable template caching
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.database = Database(os.path.join('db', 'patient_data.csv'))
+app.database = Database('database', 'patient_data.csv')
 
 # Load the pre-trained DenseNet121 model
 model = tf.keras.models.load_model('fine_tuned_weights.h5')
@@ -56,7 +56,11 @@ def upload_file():
     if file:
         # Ensure the uploads directory exists
         uploads_dir = 'uploads'
+        annotated_image_directory = 'static'
+
+        os.makedirs(annotated_image_directory, exist_ok=True)
         os.makedirs(uploads_dir, exist_ok=True)
+
         print(f"Uploads directory: {uploads_dir}")
 
         dicom_path = os.path.join(uploads_dir, file.filename)
@@ -70,12 +74,12 @@ def upload_file():
             probability = round(probability, 2)
 
             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
-            annotated_image_path = os.path.join('static', 'annotated_image.png')
+            annotated_image_path = os.path.join(annotated_image_directory, 'annotated_image.png')
             print(f"Annotated image path: {annotated_image_path}")
             cv2.imwrite(annotated_image_path, image_rgb)
 
             # Append cache buster to the image path
-            image_path = f'static/annotated_image.png?{uuid.uuid4()}'
+            image_path = f'{annotated_image_path}?{uuid.uuid4()}'
             print(f"Image path with cache buster: {image_path}")
 
             return render_template('result.html', label=label, probability=probability, image_path=image_path)

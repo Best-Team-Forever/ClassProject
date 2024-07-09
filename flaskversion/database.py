@@ -3,10 +3,10 @@ import os.path
 
 
 class Database(object):
-    def __init__(self, file_path):
-        self.database_path = file_path
-        if not os.path.exists(file_path):
-            os.makedirs(file_path)
+    def __init__(self, directory, file_name):
+        self.database_path = os.path.join(directory, file_name)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
     def save_patient_record(self, patient_id, first_name, last_name, comments, label, probability, image_file_name):
         # Open the CSV file and append the new patient data
@@ -42,5 +42,6 @@ class Database(object):
                 reader = csv.reader(file)
                 for row in reader:
                     if row[0] == patient_id:
+                        # label, probability, image_path, first_name, last_name, comments
                         return row[4], row[5], row[6], row[1], row[2], row[3]
         raise Exception("Record not found")

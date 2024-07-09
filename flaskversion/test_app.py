@@ -179,14 +179,32 @@ class FlaskAppTestCase(TestCase):
         """
         Test viewing the results page with patient entries.
         """
-        with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
-            f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
+
+        app.database = Mock()
+
+        patient_id = '1234'
+        label = 'NORMAL'
+        probability = '0.85'
+        image_path = 'flaskversion/patient_images/test_image.png'
+        first_name = 'John'
+        last_name = 'Doe'
+        comments = 'comment'
+
+        entries = [{'patient_id': patient_id,
+                    'first_name': first_name,
+                    'last_name': last_name,
+                    'comments': comments,
+                    'label': label,
+                    'probability': probability,
+                    'image_path': image_path}]
+
+        app.database.read_all_records = Mock(return_value=[entries])
 
         response = self.client.get('/results')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'John', response.data)
-        self.assertIn(b'Doe', response.data)
-        self.assertIn(b'Test comment', response.data)
+        self.assertIn(first_name, response.data)
+        self.assertIn(last_name, response.data)
+        self.assertIn(comments, response.data)
 
     @unittest.skip
     def test_result(self):
