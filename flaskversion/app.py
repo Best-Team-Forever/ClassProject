@@ -1,4 +1,5 @@
 import os
+import time
 import uuid
 
 import cv2
@@ -103,12 +104,12 @@ def save_patient_info():
         image_save_path = define_image_directory(image_id)
 
         # Check for the existence of the image file before moving it
-        # max_attempts = 10
-        # attempts = 0
-        # while not os.path.exists(image_path.split('?')[0]) and attempts < max_attempts:
-        #    print(f"Waiting for file to be saved: {image_path.split('?')[0]}")
-        #    time.sleep(0.5)
-        #    attempts += 1
+        max_attempts = 10
+        attempts = 0
+        while not os.path.exists(image_path.split('?')[0]) and attempts < max_attempts:
+            print(f"Waiting for file to be saved: {image_path.split('?')[0]}")
+            time.sleep(0.5)
+            attempts += 1
 
         if not os.path.exists(image_path.split('?')[0]):
             raise Exception("Image file not found.")
