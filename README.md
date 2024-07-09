@@ -123,7 +123,9 @@ In your repo's README, list your team name and roster with roles
 # Continuous Delivery
 |Task|Our Submission|
 |-----------|-------------|
-| Implement and provide evidence of a working CD system |https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/cicd_logs.txt <br> Link to test file: https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py |
+| Implement and provide evidence of a working CD system |https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/cicd_logs.txt |
+|Link to test file:  | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py |
+| Link to CI/CD pipeline history | https://github.com/Best-Team-Forever/ClassProject/actions | 
 # Sprint Review
 |Task| Our Submission|
 |-----------|------------------------------------------------|
