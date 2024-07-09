@@ -8,7 +8,7 @@ import tensorflow as tf
 from flask import Flask, request, render_template, redirect, url_for, send_from_directory
 from tensorflow.keras.applications.densenet import preprocess_input
 
-from flaskversion.database import Database
+from database import Database
 
 PATIENT_IMAGES = 'patient_images'
 
