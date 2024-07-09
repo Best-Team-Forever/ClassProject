@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 # Disable template caching
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.database = Database(os.path.join('database', 'patient_data.csv'))
+app.database = Database(os.path.join('db', 'patient_data.csv'))
 
 # Load the pre-trained DenseNet121 model
 model = tf.keras.models.load_model('fine_tuned_weights.h5')
