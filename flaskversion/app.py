@@ -125,11 +125,12 @@ def save_patient_info():
 
 
 def define_image_directory(image_id):
-    image_dir = os.path.join(PATIENT_IMAGES)
-    image_save_path = os.path.join(image_dir, f"{image_id}.png")
+    if not os.path.exists(PATIENT_IMAGES):
+        os.makedirs(PATIENT_IMAGES)
+    image_save_path = os.path.join(PATIENT_IMAGES, f"{image_id}.png")
     print(f"Image save path: {image_save_path}")
     # Ensure the directory exists
-    os.makedirs(image_dir, exist_ok=True)
+    # os.makedirs(image_dir, exist_ok=True)
     return image_save_path
 
 
