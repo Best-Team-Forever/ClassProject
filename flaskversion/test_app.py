@@ -1,3 +1,4 @@
+import csv
 import os
 import shutil
 import unittest
@@ -13,7 +14,7 @@ from pydicom.uid import ExplicitVRLittleEndian
 
 from app import app, preprocess_image, classify_image, generate_ids, PATIENT_IMAGES, \
     define_image_directory  # Adjust imports as needed
-from email_service import EmailService
+from database import Database
 
 
 def create_dummy_dicom(directory):
@@ -130,19 +131,21 @@ class FlaskAppTestCase(TestCase):
         self.assertTrue(0 <= probability <= 1)
         os.remove(dicom_path)
 
+    # Test No. 8
     def test_generate_ids(self):
         image_id, patient_id = generate_ids()
         self.assertIsNotNone(image_id)
         self.assertIsNotNone(patient_id)
         self.assertNotEquals(image_id, patient_id)
 
+    # Test No. 9
     def test_define_image_directory(self):
         image_id = '10'
         expected = os.path.join(PATIENT_IMAGES, f"{image_id}.png")
         result = define_image_directory(image_id)
         self.assertEqual(expected, result)
 
-    # Test No. 8
+    # Test No. 10
     def test_save_patient_info(self):
         """
         Test saving patient information after classification.
@@ -178,7 +181,7 @@ class FlaskAppTestCase(TestCase):
                                                                      label,
                                                                      probability, String())
 
-    @unittest.skip
+    # Test No. 11
     def test_results(self):
         """
         Test viewing the results page with patient entries.
@@ -204,26 +207,45 @@ class FlaskAppTestCase(TestCase):
                     'probability': probability,
                     'image_path': image_path}]
 
-        app.database.read_all_records = Mock(return_value=[entries])
+        app.database.read_all_records = Mock(return_value=entries)
 
         response = self.client.get('/results')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(first_name, response.data)
-        self.assertIn(last_name, response.data)
-        self.assertIn(comments, response.data)
+        self.assertIn(str.encode(first_name), response.data)
+        self.assertIn(str.encode(last_name), response.data)
+        self.assertIn(str.encode(comments), response.data)
 
-    @unittest.skip
+    # Test No. 12
     def test_result(self):
         """
         Test viewing a single result by patient ID.
         """
-        with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
-            f.write('1234,John,Doe,john@doe.com,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
 
-        response = self.client.get('/result/1234')
+        app.database = Mock()
+
+        patient_id = '1234'
+        label = 'NORMAL'
+        probability = '0.85'
+        image_path = 'flaskversion/patient_images/test_image.png'
+        first_name = 'John'
+        last_name = 'Doe'
+        email = 'john@doe.com'
+        comments = 'comment'
+
+        app.database.read_record = Mock(
+            return_value=[label, probability, image_path, first_name, last_name, comments, email])
+
+        response = self.client.get(f'/result/{patient_id}')
+
+        app.database.read_record.assert_called_once_with(patient_id)
         self.assertEqual(response.status_code, 200)
+        self.assertIn(str.encode(first_name), response.data)
+        self.assertIn(str.encode(last_name), response.data)
+        self.assertIn(str.encode(comments), response.data)
+        self.assertIn(str.encode(label), response.data)
+        self.assertIn(str.encode(email), response.data)
 
-    @unittest.skip
+    # Test No. 13
     def test_upload_invalid_file_format(self):
         """
         Test uploading a file with an invalid format.
@@ -231,7 +253,7 @@ class FlaskAppTestCase(TestCase):
         response = self.client.post('/upload', data={'file': (BytesIO(b'invalid content'), 'test.txt')})
         self.assertIn(b'Error processing file', response.data)
 
-    @unittest.skip
+    # Test No. 14
     def test_patient_images_serving(self):
         """
         Test serving patient images.
@@ -244,36 +266,60 @@ class FlaskAppTestCase(TestCase):
         response = self.client.get('/patient_images/test_image.png')
         self.assertEqual(response.status_code, 200)
 
-    @unittest.skip
+    # Test No. 15
     def test_patient_data_file_creation(self):
         """
         Test if the patient data file is created if it doesn't exist.
         """
-        with self.client as c:
-            with c.session_transaction() as session:
-                session['image_path'] = 'static/save_patient_information_test.png'
+        directory = 'test_database'
+        file = 'data.csv'
+        database = Database(directory, file)
 
-            response = c.post('/save_patient_info', data={
-                'first_name': 'John',
-                'last_name': 'Doe',
-                'email': 'john@doe.com',
-                'comments': 'Test comment',
-                'label': 'NORMAL',
-                'probability': '0.85',
-                'image_path': 'static/save_patient_information_test.png'
-            })
-            self.assertEqual(302, response.status_code)  # Redirect status code
+        patient_id = '1234'
+        label = 'NORMAL'
+        probability = '0.85'
+        image_path = 'test_image.png'
+        first_name = 'John'
+        last_name = 'Doe'
+        email = 'john@doe.com'
+        comments = 'comment'
+        image_path = 'image.png'
 
-    @unittest.skip
+        database.save_patient_record(patient_id, first_name, last_name, email, comments, label, probability, image_path)
+
+        self.assertTrue(os.path.exists(os.path.join(directory, file)))
+
+        with open(os.path.join(directory, file), mode='r') as file:
+            reader = csv.reader(file)
+            rows = 0
+            for row in reader:
+                rows += 1
+                self.assertEqual(patient_id, row[0])
+                self.assertEqual(first_name, row[1])
+                self.assertEqual(last_name, row[2])
+                self.assertEqual(email, row[3])
+                self.assertEqual(comments, row[4])
+                self.assertEqual(label, row[5])
+                self.assertEqual(probability, row[6])
+                self.assertEqual(image_path, row[7])
+            self.assertEqual(1, rows)
+        shutil.rmtree(directory)
+
+    # Test No. 16
     def test_missing_patient_id(self):
         """
         Test accessing a result with a missing patient ID.
         """
+
+        app.database = Mock()
+        app.database.read_record = Mock()
+        app.database.read_record.side_effect = Exception("Record not found")
+
         response = self.client.get('/result/9999')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Patient not found', response.data)
 
-    @unittest.skip
+    # Test No. 17
     def test_index_content(self):
         """
         Test the content of the index page.
@@ -282,7 +328,7 @@ class FlaskAppTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Upload DICOM Image', response.data)
 
-    @unittest.skip
+    # Test No. 18
     def test_about_content(self):
         """
         Test the content of the about page.
@@ -291,42 +337,28 @@ class FlaskAppTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'About', response.data)
 
-    @unittest.skip
-    def test_results_content(self):
-        """
-        Test the content of the results page.
-        """
-        with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
-            f.write('1234,John,Doe,john@doe.com,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
-
-        response = self.client.get('/results')
-        self.assertEqual(response.status_code, 200)
-
-    @unittest.skip
+    # Test No. 19
     def test_preprocess_image_values(self):
         """
         Test the preprocessing function for correct normalization.
         """
-        image, dicom = preprocess_image(self.dicom_path)
+        dicom_path = create_dummy_dicom(app.config['UPLOAD_FOLDER'])
+        image, dicom = preprocess_image(dicom_path)
         # Ensure preprocess_input is correctly applied
         # diacom is normalized +/- 3
         self.assertTrue(np.all((image >= -3.0) & (image <= 3.0)))
 
-    @unittest.skip
+    # Test No. 20
     def test_classify_image_output(self):
         """
         Test the classify_image function output values.
         """
-        image, _ = preprocess_image(self.dicom_path)
+        dicom_path = create_dummy_dicom(app.config['UPLOAD_FOLDER'])
+        image, _ = preprocess_image(dicom_path)
         model = tf.keras.models.load_model('fine_tuned_weights.h5')
         label, probability = classify_image(image, model)
         self.assertIsInstance(label, str)
         self.assertTrue(isinstance(probability, (float, np.float32, np.float64)))
-
-    @unittest.skip
-    def test_send_email(self):
-        email_service = EmailService()
-        email_service.send_email('alejandro855@gmail.com')
 
 
 if __name__ == '__main__':
