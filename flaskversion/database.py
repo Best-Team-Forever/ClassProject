@@ -4,11 +4,19 @@ import os.path
 
 class Database(object):
     def __init__(self, directory, file_name):
+
+        if directory is None or directory == '':
+            raise ValueError('Directory cannot be empty')
+
+        if file_name is None or file_name == '':
+            raise ValueError('File name cannot be empty')
+
         self.database_path = os.path.join(directory, file_name)
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-    def save_patient_record(self, patient_id, first_name, last_name, email, comments, label, probability, image_file_name):
+    def save_patient_record(self, patient_id, first_name, last_name, email, comments, label, probability,
+                            image_file_name):
         # Open the CSV file and append the new patient data
         print(f"CSV file path: {self.database_path}")
         with open(self.database_path, mode='a', newline='') as file:
@@ -28,7 +36,7 @@ class Database(object):
                         'patient_id': row[0],
                         'first_name': row[1],
                         'last_name': row[2],
-                        'email' : row[3],
+                        'email': row[3],
                         'comments': row[4],
                         'label': row[5],
                         'probability': row[6],
@@ -44,5 +52,5 @@ class Database(object):
                 for row in reader:
                     if row[0] == patient_id:
                         # label, probability, image_path, first_name, last_name, comments, email
-                        return row[5], row[6], row[7], row[1], row[2], row[4], row[3] 
+                        return row[5], row[6], row[7], row[1], row[2], row[4], row[3]
         raise Exception("Record not found")

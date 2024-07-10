@@ -50,6 +50,7 @@ class FlaskAppTestCase(TestCase):
         app.config['TESTING'] = True
         app.config['UPLOAD_FOLDER'] = 'test_uploads'
         app.config['STATIC_FOLDER'] = 'test_static'
+        app.config['PATIENT_DATA_FOLDER'] = 'test_database'
         app.config['PATIENT_DATA_FILE'] = 'patient_data.txt'
         app.config['PATIENT_IMAGES_FOLDER'] = 'test_patient_images'
         app.config['SECRET_KEY'] = 'secret!'
@@ -58,14 +59,27 @@ class FlaskAppTestCase(TestCase):
 
     def setUp(self):
         # Set up test data and environment
+        if os.path.exists(app.config['UPLOAD_FOLDER']):
+            shutil.rmtree(app.config['UPLOAD_FOLDER'])
         os.makedirs(app.config['UPLOAD_FOLDER'])
+
+        if os.path.exists(app.config['STATIC_FOLDER']):
+            shutil.rmtree(app.config['STATIC_FOLDER'])
         os.makedirs(app.config['STATIC_FOLDER'])
+
+        if os.path.exists(app.config['PATIENT_IMAGES_FOLDER']):
+            shutil.rmtree(app.config['PATIENT_IMAGES_FOLDER'])
         os.makedirs(app.config['PATIENT_IMAGES_FOLDER'])
+
+        if os.path.exists(app.config['PATIENT_DATA_FOLDER']):
+            shutil.rmtree(app.config['PATIENT_DATA_FOLDER'])
+        os.makedirs(app.config['PATIENT_DATA_FOLDER'])
 
     def tearDown(self):
         shutil.rmtree(app.config['UPLOAD_FOLDER'])
         shutil.rmtree(app.config['STATIC_FOLDER'])
         shutil.rmtree(app.config['PATIENT_IMAGES_FOLDER'])
+        shutil.rmtree(app.config['PATIENT_DATA_FOLDER'])
 
     # Test No. 1
     def test_index(self):
@@ -253,20 +267,18 @@ class FlaskAppTestCase(TestCase):
         response = self.client.post('/upload', data={'file': (BytesIO(b'invalid content'), 'test.txt')})
         self.assertIn(b'Error processing file', response.data)
 
-
-    # Test No. 15
+    # Test No. 14
     def test_patient_data_file_creation(self):
         """
         Test if the patient data file is created if it doesn't exist.
         """
-        directory = 'test_database'
-        file = 'data.csv'
-        database = Database(directory, file)
+        directory = app.config['PATIENT_DATA_FOLDER']
+        file_name = app.config['PATIENT_DATA_FILE']
+        database = Database(directory, file_name)
 
         patient_id = '1234'
         label = 'NORMAL'
         probability = '0.85'
-        image_path = 'test_image.png'
         first_name = 'John'
         last_name = 'Doe'
         email = 'john@doe.com'
@@ -275,9 +287,9 @@ class FlaskAppTestCase(TestCase):
 
         database.save_patient_record(patient_id, first_name, last_name, email, comments, label, probability, image_path)
 
-        self.assertTrue(os.path.exists(os.path.join(directory, file)))
+        self.assertTrue(os.path.exists(os.path.join(directory, file_name)))
 
-        with open(os.path.join(directory, file), mode='r') as file:
+        with open(os.path.join(directory, file_name), mode='r') as file:
             reader = csv.reader(file)
             rows = 0
             for row in reader:
@@ -291,9 +303,8 @@ class FlaskAppTestCase(TestCase):
                 self.assertEqual(probability, row[6])
                 self.assertEqual(image_path, row[7])
             self.assertEqual(1, rows)
-        shutil.rmtree(directory)
 
-    # Test No. 16
+    # Test No. 15
     def test_missing_patient_id(self):
         """
         Test accessing a result with a missing patient ID.
@@ -307,7 +318,7 @@ class FlaskAppTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Patient not found', response.data)
 
-    # Test No. 17
+    # Test No. 16
     def test_index_content(self):
         """
         Test the content of the index page.
@@ -316,7 +327,7 @@ class FlaskAppTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Upload DICOM Image', response.data)
 
-    # Test No. 18
+    # Test No. 17
     def test_about_content(self):
         """
         Test the content of the about page.
@@ -325,7 +336,7 @@ class FlaskAppTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'About', response.data)
 
-    # Test No. 19
+    # Test No. 18
     def test_preprocess_image_values(self):
         """
         Test the preprocessing function for correct normalization.
@@ -336,7 +347,7 @@ class FlaskAppTestCase(TestCase):
         # diacom is normalized +/- 3
         self.assertTrue(np.all((image >= -3.0) & (image <= 3.0)))
 
-    # Test No. 20
+    # Test No. 19
     def test_classify_image_output(self):
         """
         Test the classify_image function output values.
@@ -347,6 +358,144 @@ class FlaskAppTestCase(TestCase):
         label, probability = classify_image(image, model)
         self.assertIsInstance(label, str)
         self.assertTrue(isinstance(probability, (float, np.float32, np.float64)))
+
+    def test_database_read_all_records(self):
+        directory = app.config['PATIENT_DATA_FOLDER']
+        file_name = app.config['PATIENT_DATA_FILE']
+
+        patients = [{'patient_id': '1234',
+                     'label': 'NORMAL',
+                     'probability': '0.12',
+                     'image_path': 'test_image.png',
+                     'first_name': 'John',
+                     'last_name': 'Doe',
+                     'email': 'john@doe.com',
+                     'comments': 'comment'},
+                    {'patient_id': '2345',
+                     'label': 'ABNORMAL',
+                     'probability': '0.85',
+                     'image_path': 'test_image_2.png',
+                     'first_name': 'Harry',
+                     'last_name': 'Potter',
+                     'email': 'harry@potter.com',
+                     'comments': 'comment second patient'}
+                    ]
+
+        data_file_path = os.path.join(directory, file_name)
+        with open(data_file_path, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            for patient in patients:
+                writer.writerow(
+                    [patient['patient_id'], patient['first_name'], patient['last_name'], patient['email'],
+                     patient['comments'], patient['label'], patient['probability'], patient['image_path']])
+
+        database = Database(directory, file_name)
+
+        entries = database.read_all_records()
+        self.assertEqual(2, len(entries))
+        self.assertEqual(patients[0]['patient_id'], entries[0]['patient_id'])
+        self.assertEqual(patients[1]['patient_id'], entries[1]['patient_id'])
+
+    def test_database_creates_directory(self):
+        directory = 'test_database_directory'
+        file_name = app.config['PATIENT_DATA_FILE']
+
+        if os.path.exists(directory):
+            shutil.rmtree(directory)
+
+        Database(directory, file_name)
+        self.assertTrue(os.path.exists(directory))
+        shutil.rmtree(directory)
+
+    def test_database_directory_cannot_be_empty(self):
+        directory = ''
+        file_name = app.config['PATIENT_DATA_FILE']
+
+        try:
+            Database(directory, file_name)
+        except ValueError as ve:
+            print(ve)
+            return
+        self.fail("Empty directory accepted by Database")
+
+    def test_database_directory_cannot_be_none(self):
+        directory = None
+        file_name = app.config['PATIENT_DATA_FILE']
+
+        try:
+            Database(directory, file_name)
+        except ValueError as ve:
+            print(ve)
+            return
+        self.fail("None directory accepted by Database")
+
+    def test_database_filename_cannot_be_empty(self):
+        directory = app.config['PATIENT_DATA_FOLDER']
+        file_name = ''
+
+        try:
+            Database(directory, file_name)
+        except ValueError as ve:
+            print(ve)
+            return
+        self.fail("Empty file name accepted by Database")
+
+    def test_database_filename_cannot_be_none(self):
+        directory = app.config['PATIENT_DATA_FOLDER']
+        file_name = None
+
+        try:
+            Database(directory, file_name)
+        except ValueError as ve:
+            print(ve)
+            return
+        self.fail("None file accepted by Database")
+
+    def test_database_read_record(self):
+        directory = app.config['PATIENT_DATA_FOLDER']
+        file_name = app.config['PATIENT_DATA_FILE']
+
+        patient = {'patient_id': '1234',
+                   'label': 'NORMAL',
+                   'probability': '0.12',
+                   'image_path': 'test_image.png',
+                   'first_name': 'John',
+                   'last_name': 'Doe',
+                   'email': 'john@doe.com',
+                   'comments': 'comment'}
+
+        data_file_path = os.path.join(directory, file_name)
+        with open(data_file_path, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                patient['patient_id'], patient['first_name'], patient['last_name'], patient['email'],
+                patient['comments'], patient['label'], patient['probability'], patient['image_path']])
+
+        database = Database(directory, file_name)
+        label, probability, image_path, first_name, last_name, comments, email = database.read_record(
+            patient['patient_id'])
+
+        self.assertEqual(label, patient['label'])
+        self.assertEqual(probability, patient['probability'])
+        self.assertEqual(image_path, patient['image_path'])
+        self.assertEqual(first_name, patient['first_name'])
+        self.assertEqual(last_name, patient['last_name'])
+        self.assertEqual(comments, patient['comments'])
+        self.assertEqual(email, patient['email'])
+
+    def test_database_read_record_when_record_does_not_exist(self):
+        directory = app.config['PATIENT_DATA_FOLDER']
+        file_name = app.config['PATIENT_DATA_FILE']
+        patient_id = '1234'
+
+        database = Database(directory, file_name)
+
+        try:
+            database.read_record(patient_id)
+        except Exception as ex:
+            print(ex)
+            return
+        self.fail("Database returned successfully when reading non existing record")
 
 
 if __name__ == '__main__':
