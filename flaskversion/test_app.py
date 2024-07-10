@@ -537,6 +537,7 @@ class FlaskAppTestCase(TestCase):
         self.assertEqual(sender, email_message['From'])
         self.assertEqual(receiver, email_message['To'])
 
+    # Test No. 30
     def test_send_email(self):
 
         app.database = Mock()
