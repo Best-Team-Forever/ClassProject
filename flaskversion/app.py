@@ -94,6 +94,7 @@ def save_patient_info():
     try:
         first_name = request.form['first_name']
         last_name = request.form['last_name']
+        email = request.form['email']
         comments = request.form['comments']
         label = request.form['label']
         probability = request.form['probability']
@@ -118,7 +119,7 @@ def save_patient_info():
         # Move the uploaded image to the designated directory
         os.rename(image_path.split('?')[0], image_save_path)
 
-        app.database.save_patient_record(patient_id, first_name, last_name, comments, label, probability,
+        app.database.save_patient_record(patient_id, first_name, last_name, email, comments, label, probability,
                                          image_save_path)
 
         # Redirect to the results page after successful data saving

@@ -8,14 +8,14 @@ class Database(object):
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-    def save_patient_record(self, patient_id, first_name, last_name, comments, label, probability, image_file_name):
+    def save_patient_record(self, patient_id, first_name, last_name, email, comments, label, probability, image_file_name):
         # Open the CSV file and append the new patient data
         print(f"CSV file path: {self.database_path}")
         with open(self.database_path, mode='a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow([patient_id, first_name, last_name, comments, label, probability, image_file_name])
+            writer.writerow([patient_id, first_name, last_name, email, comments, label, probability, image_file_name])
 
-        print(f"Successfully saved patient info: {patient_id}, {first_name}, {last_name}")
+        print(f"Successfully saved patient info: {patient_id}, {first_name}, {last_name}, {email}")
 
     def read_all_records(self):
         entries = []
@@ -28,10 +28,11 @@ class Database(object):
                         'patient_id': row[0],
                         'first_name': row[1],
                         'last_name': row[2],
-                        'comments': row[3],
-                        'label': row[4],
-                        'probability': row[5],
-                        'image_path': row[6]
+                        'email' : row[3],
+                        'comments': row[4],
+                        'label': row[5],
+                        'probability': row[6],
+                        'image_path': row[7]
                     })
         return entries
 
@@ -42,6 +43,6 @@ class Database(object):
                 reader = csv.reader(file)
                 for row in reader:
                     if row[0] == patient_id:
-                        # label, probability, image_path, first_name, last_name, comments
-                        return row[4], row[5], row[6], row[1], row[2], row[3]
+                        # label, probability, image_path, first_name, last_name, comments, email
+                        return row[5], row[6], row[7], row[1], row[2], row[4], row[3] 
         raise Exception("Record not found")

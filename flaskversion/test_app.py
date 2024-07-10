@@ -157,6 +157,7 @@ class FlaskAppTestCase(TestCase):
 
             first_name = 'John'
             last_name = 'Doe'
+            email = 'john@doe.com'
             comments = 'Test comment'
             label = 'NORMAL'
             probability = '0.85'
@@ -164,6 +165,7 @@ class FlaskAppTestCase(TestCase):
             response = c.post('/save_patient_info', data={
                 'first_name': first_name,
                 'last_name': last_name,
+                'email' : email,
                 'comments': comments,
                 'label': label,
                 'probability': probability,
@@ -171,7 +173,7 @@ class FlaskAppTestCase(TestCase):
             })
             self.assertEqual(response.status_code, 302)  # Redirect status code
 
-            app.database.save_patient_record.assert_called_once_with(String(), first_name, last_name, comments, label,
+            app.database.save_patient_record.assert_called_once_with(String(), first_name, last_name, email, comments, label,
                                                                      probability, String())
 
     @unittest.skip
@@ -188,11 +190,13 @@ class FlaskAppTestCase(TestCase):
         image_path = 'flaskversion/patient_images/test_image.png'
         first_name = 'John'
         last_name = 'Doe'
+        email = 'john@doe.com'
         comments = 'comment'
 
         entries = [{'patient_id': patient_id,
                     'first_name': first_name,
                     'last_name': last_name,
+                    'email': email,
                     'comments': comments,
                     'label': label,
                     'probability': probability,
@@ -212,7 +216,7 @@ class FlaskAppTestCase(TestCase):
         Test viewing a single result by patient ID.
         """
         with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
-            f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
+            f.write('1234,John,Doe,john@doe.com,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
 
         response = self.client.get('/result/1234')
         self.assertEqual(response.status_code, 200)
@@ -250,6 +254,7 @@ class FlaskAppTestCase(TestCase):
             response = c.post('/save_patient_info', data={
                 'first_name': 'John',
                 'last_name': 'Doe',
+                'email': 'john@doe.com',
                 'comments': 'Test comment',
                 'label': 'NORMAL',
                 'probability': '0.85',
@@ -290,7 +295,7 @@ class FlaskAppTestCase(TestCase):
         Test the content of the results page.
         """
         with open(app.config['PATIENT_DATA_FILE'], 'w') as f:
-            f.write('1234,John,Doe,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
+            f.write('1234,John,Doe,john@doe.com,Test comment,NORMAL,0.85,flaskversion/patient_images/test_image.png\n')
 
         response = self.client.get('/results')
         self.assertEqual(response.status_code, 200)
