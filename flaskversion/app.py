@@ -166,7 +166,7 @@ def result(patient_id):
 
 
 @app.route('/send_email/<patient_id>')
-def result(patient_id):
+def send_email(patient_id):
     return "Email TODO"
 
 
