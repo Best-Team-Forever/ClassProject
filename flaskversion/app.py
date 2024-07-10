@@ -155,15 +155,15 @@ def result(patient_id):
         return "Patient not found"
 
 
-@app.route('/send_email/<patient_id>')
+@app.route('/send_email/<patient_id>', methods=['POST'])
 def send_email(patient_id):
     try:
         label, probability, image_path, first_name, last_name, comments, email = app.database.read_record(patient_id)
         app.email_service.send_email(first_name, last_name, email, float(probability))
+        return {"status": "success", "message": "Email sent successfully"}
     except Exception as e:
         print(f"Error occurred: {e}")
-        return "Patient not found"
-    return "Email sent successfully"
+        return {"status": "error", "message": "Patient not found"}, 500
 
 
 @app.route('/patient_images/<filename>')
