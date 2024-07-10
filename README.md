@@ -183,8 +183,8 @@ In your repo's README, list your team name and roster with roles
 |Task| Our Submission|
 |-----------|-------------|
 | All team members participate |    |
-| Identify improvement action |    |
-| Make a concrete plan for implementing the change |    |
+| Identify improvement action | https://docs.google.com/document/d/19mWe4r4ynbb7owMXA7gVZKby_lpcBrfjoZOFmOyejKw/edit?usp=sharing |
+| Make a concrete plan for implementing the change | https://docs.google.com/document/d/19mWe4r4ynbb7owMXA7gVZKby_lpcBrfjoZOFmOyejKw/edit?usp=sharing |
 
 ## Product Backlog Refinement
 |Task| Our Submission|
