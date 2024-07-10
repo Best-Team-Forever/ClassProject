@@ -153,7 +153,7 @@ In your repo's README, list your team name and roster with roles
 | Ensure stories are right-sized | Based on our estimating activity we believe our user stories are estimated correctly at [1, 3, 5, 1] and are right sized   |
 | Decompose stories into tasks | https://docs.google.com/document/d/1m29oDQ9R2dQ7JdMp0I4lC672DsF8-kEV6AIVPxGVeDY/edit?usp=sharing <br> Jira: https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?cloudId=1234c6a6-c8dc-4879-bd64-e26c3505ca96 |
 | Set up a kanban board for sprint backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1 |
-| Create and maintain a sprint burndown chart |    |
+| Create and maintain a sprint burndown chart | https://docs.google.com/document/d/1m29oDQ9R2dQ7JdMp0I4lC672DsF8-kEV6AIVPxGVeDY/edit?usp=sharing |
 
 ## Sprint Execution and Monitoring
 |Task| Our Submission|
