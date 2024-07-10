@@ -1,5 +1,4 @@
 import os
-import time
 import uuid
 
 import cv2
@@ -10,6 +9,7 @@ from flask import Flask, request, render_template, redirect, url_for, send_from_
 from tensorflow.keras.applications.densenet import preprocess_input
 
 from database import Database
+from email_service import EmailService
 
 PATIENT_IMAGES = 'patient_images'
 
@@ -18,6 +18,7 @@ app = Flask(__name__)
 # Disable template caching
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.database = Database('database', 'patient_data.csv')
+app.email_service = EmailService()
 
 # Load the pre-trained DenseNet121 model
 model = tf.keras.models.load_model('fine_tuned_weights.h5')
@@ -77,7 +78,7 @@ def upload_file():
             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
             annotated_image_path = os.path.join(annotated_image_directory, f'{uuid.uuid4()}.png')
             print(f"Annotated image path: {annotated_image_path}")
-            
+
             # Save the image with compression
             compression_params = [cv2.IMWRITE_PNG_COMPRESSION, 9]  # Set the compression level (0-9)
             image_saved = cv2.imwrite(annotated_image_path, image_rgb, compression_params)
@@ -103,17 +104,6 @@ def save_patient_info():
 
         # Define the directory and file path for the image
         image_save_path = define_image_directory(image_id)
-
-        # Check for the existence of the image file before moving it
-        max_attempts = 120
-        attempts = 0
-        while not os.path.exists(image_path.split('?')[0]) and attempts < max_attempts:
-            print(f"Waiting for file to be saved: {image_path.split('?')[0]}")
-            time.sleep(0.2)
-            attempts += 1
-
-        if not os.path.exists(image_path.split('?')[0]):
-            raise Exception("Image file not found.")
 
         # Move the uploaded image to the designated directory
         os.rename(image_path.split('?')[0], image_save_path)
@@ -167,7 +157,13 @@ def result(patient_id):
 
 @app.route('/send_email/<patient_id>')
 def send_email(patient_id):
-    return "Email TODO"
+    try:
+        label, probability, image_path, first_name, last_name, comments, email = app.database.read_record(patient_id)
+        app.email_service.send_email(email, float(probability))
+    except Exception as e:
+        print(f"Error occurred: {e}")
+        return "Patient not found"
+    return "Email sent successfully"
 
 
 @app.route('/patient_images/<filename>')

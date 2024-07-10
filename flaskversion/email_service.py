@@ -11,14 +11,21 @@ context = ssl.create_default_context()
 
 class EmailService:
 
-    def send_email(self, receiver):
+    def build_message(self, subject, sender, receiver, content):
+        message = EmailMessage()
+        message['Subject'] = subject
+        message['From'] = sender
+        message['To'] = receiver
+        message.set_content(content)
+        return message
+
+    def send_email(self, receiver, probability):
         with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
             server.login("deepscan.patient.info@gmail.com", password)
 
-            message = EmailMessage()
-            message['Subject'] = 'Your analysis results'
-            message['From'] = 'DeepScan'
-            message['To'] = 'alejandro855@gmail.com'
-            message.set_content('Your risk score is: 10%')
+            subject = 'Your analysis results'
+            sender_name = 'DeepScan'
+            content = f'Your risk score is: {round(probability, 2)}%'
 
+            message = self.build_message(subject, sender_name, receiver, content)
             server.send_message(message)
