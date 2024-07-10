@@ -142,3 +142,51 @@ In your repo's README, list your team name and roster with roles
 |Task|Our Submission|
 |-----------|-------------|
 | Ensure all PBIs are true user stories | All backlog items have been reviewed by the team for stakeholder value. <br> https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog |
+
+
+# Project Part 4: Final Sprint
+## Sprint Planning
+|Task| Our Submission|
+|-----------|-------------|
+| Document sprint forecast and rationale in README |    |
+| Pull appropriate stories into sprint backlog |    |
+| Ensure stories are right-sized |    |
+| Decompose stories into tasks |    |
+| Set up a kanban board for sprint backlog |    |
+| Create and maintain a sprint burndown chart |    |
+
+## Sprint Execution and Monitoring
+|Task| Our Submission|
+|-----------|-------------|
+| Conduct Daily Scrums (four aspects are included in file) |    |
+| Update task board and burndown chart daily |    |
+
+## Advanced Development Practices
+|Task| Our Submission|
+|-----------|-------------|
+| Pair or Mob Programming |    |
+| Test-Driven Development: At least 1 BDD/A-TDD test |    |
+| Test-Driven Development: At least 30 micro-scale unit tests |    |
+| Continuous Integration |    |
+
+## Continuous Delivery
+|Task| Our Submission|
+|-----------|-------------|
+| Implement and provide evidence of a working CD system |    |
+
+## In-Class Sprint Review
+|Task| Our Submission|
+|-----------|-------------|
+| in class |    |
+
+## Sprint Retrospective 
+|Task| Our Submission|
+|-----------|-------------|
+| All team members participate |    |
+| Identify improvement action |    |
+| Make a concrete plan for implementing the change |    |
+
+## Product Backlog Refinement
+|Task| Our Submission|
+|-----------|-------------|
+| Ensure all PBIs are true user stories |    |
