@@ -149,17 +149,17 @@ In your repo's README, list your team name and roster with roles
 |Task| Our Submission|
 |-----------|-------------|
 | Document sprint forecast and rationale in README |    |
-| Pull appropriate stories into sprint backlog |    |
-| Ensure stories are right-sized |    |
-| Decompose stories into tasks |    |
-| Set up a kanban board for sprint backlog |    |
+| Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Backlog.png |
+| Ensure stories are right-sized | Based on our estimating activity we believe our user stories are estimated correctly at [1, 3, 5, 1] and are right sized   |
+| Decompose stories into tasks | https://docs.google.com/document/d/1m29oDQ9R2dQ7JdMp0I4lC672DsF8-kEV6AIVPxGVeDY/edit?usp=sharing <br> Jira: https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?cloudId=1234c6a6-c8dc-4879-bd64-e26c3505ca96 |
+| Set up a kanban board for sprint backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1 |
 | Create and maintain a sprint burndown chart |    |
 
 ## Sprint Execution and Monitoring
 |Task| Our Submission|
 |-----------|-------------|
-| Conduct Daily Scrums (four aspects are included in file) |    |
-| Update task board and burndown chart daily |    |
+| Conduct Daily Scrums (four aspects are included in file) | https://docs.google.com/document/d/1c_6Ojqy2YdTdujcuReLXYrW3KN31oDizHE2oUZxaaU8/edit?usp=sharing   |
+| Update task board and burndown chart daily | Update images: https://docs.google.com/document/d/1m29oDQ9R2dQ7JdMp0I4lC672DsF8-kEV6AIVPxGVeDY/edit?usp=sharing <br> GoogleSheet: https://docs.google.com/spreadsheets/d/18oSM0S9uLB3hxNABYQ-iGfEsaB5dEMOkPgNK2UaThls/edit?gid=1726514913#gid=1726514913 |
 
 ## Advanced Development Practices
 |Task| Our Submission|
