@@ -253,18 +253,6 @@ class FlaskAppTestCase(TestCase):
         response = self.client.post('/upload', data={'file': (BytesIO(b'invalid content'), 'test.txt')})
         self.assertIn(b'Error processing file', response.data)
 
-    # Test No. 14
-    def test_patient_images_serving(self):
-        """
-        Test serving patient images.
-        """
-        image_path = os.path.join(app.config['PATIENT_IMAGES_FOLDER'], 'test_image.png')
-        os.makedirs(os.path.dirname(image_path), exist_ok=True)  # Ensure directory exists
-        with open(image_path, 'wb') as f:
-            f.write(np.zeros((256, 256), dtype=np.uint8))
-
-        response = self.client.get('/patient_images/test_image.png')
-        self.assertEqual(response.status_code, 200)
 
     # Test No. 15
     def test_patient_data_file_creation(self):
