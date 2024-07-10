@@ -10,6 +10,7 @@ from flask import Flask, request, render_template, redirect, url_for, send_from_
 from tensorflow.keras.applications.densenet import preprocess_input
 
 from database import Database
+from email_service import EmailService
 
 PATIENT_IMAGES = 'patient_images'
 
@@ -18,6 +19,7 @@ app = Flask(__name__)
 # Disable template caching
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.database = Database('database', 'patient_data.csv')
+app.email_service = EmailService()
 
 # Load the pre-trained DenseNet121 model
 model = tf.keras.models.load_model('fine_tuned_weights.h5')
@@ -167,7 +169,13 @@ def result(patient_id):
 
 @app.route('/send_email/<patient_id>')
 def send_email(patient_id):
-    return "Email TODO"
+    try:
+        label, probability, image_path, first_name, last_name, comments, email = app.database.read_record(patient_id)
+        app.email_service.send_email(email, float(probability))
+    except Exception as e:
+        print(f"Error occurred: {e}")
+        return "Patient not found"
+    return "Email sent successfully"
 
 
 @app.route('/patient_images/<filename>')
