@@ -47,43 +47,6 @@ def index():
     return render_template('index.html')
 
 
-# @app.route('/upload', methods=['POST'])
-# def upload_file():
-#     if 'file' not in request.files:
-#         return 'No file part'
-#     file = request.files['file']
-#     if file.filename == '':
-#         return 'No selected file'
-#     if file:
-#         # Ensure the uploads directory exists
-#         uploads_dir = 'uploads'
-#         annotated_image_directory = 'static'
-
-#         os.makedirs(annotated_image_directory, exist_ok=True)
-#         os.makedirs(uploads_dir, exist_ok=True)
-
-#         print(f"Uploads directory: {uploads_dir}")
-
-#         dicom_path = os.path.join(uploads_dir, file.filename)
-#         print(f"DICOM path: {dicom_path}")
-#         file.save(dicom_path)
-
-#         try:
-#             image, dicom = preprocess_image(dicom_path)
-#             label, probability = classify_image(image, model)
-#             probability *= 100.0
-#             probability = round(probability, 2)
-
-#             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
-#             annotated_image_path = os.path.join(annotated_image_directory, f'{uuid.uuid4()}.png')
-#             print(f"Annotated image path: {annotated_image_path}")
-#             image_saved = cv2.imwrite(annotated_image_path, image_rgb)
-#             print(f"Annotated image saved: {image_saved}")
-
-#             return render_template('result.html', label=label, probability=probability, image_path=annotated_image_path)
-#         except Exception as e:
-#             return f"Error processing file {dicom_path}: {e}"
-
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -200,6 +163,11 @@ def result(patient_id):
     except Exception as e:
         print(f"Error occurred: {e}")
         return "Patient not found"
+
+
+@app.route('/send_email/<patient_id>')
+def result(patient_id):
+    return "Email TODO"
 
 
 @app.route('/patient_images/<filename>')

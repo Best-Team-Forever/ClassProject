@@ -65,6 +65,8 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>Radiology Comments</th>
+          <th>Email</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -74,6 +76,10 @@
           <td>{{ entry.first_name }}</td>
           <td>{{ entry.last_name }}</td>
           <td>{{ entry.comments }}</td>
+          <td>{{ entry.email }}</td>
+          <td>
+            <a class="btn" href="{{ url_for('send_email', patient_id=entry.patient_id) }}">Email to Patient</a>
+          </td>
         </tr>
         {% endfor %}
       </tbody>

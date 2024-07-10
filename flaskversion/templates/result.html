@@ -66,28 +66,32 @@
           <img src="/{{ image_path }}" alt="Annotated Image" width="100%" class="img-fluid mt-3" alt="Image processing, check back later.">
         </td>
         <td id="rightcol">
-          <form action="/save_patient_info" method="post" class="mt-3">
-            <div class="form-group">
-              <label for="first_name">Patient First Name:</label>
-              <input type="text" id="first_name" name="first_name" class="form-control" required value="{{ first_name }}">
+          <div class="card">
+            <div class="card-body">
+              <form action="/save_patient_info" method="post" class="mt-3">
+                <div class="form-group">
+                  <label for="first_name">Patient First Name:</label>
+                  <input type="text" id="first_name" name="first_name" class="form-control" required value="{{ first_name }}">
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Patient Last Name:</label>
+                  <input type="text" id="last_name" name="last_name" class="form-control" required value="{{ last_name }}">
+                </div>
+                <div class="form-group">
+                  <label for="email">Patient Email:</label>
+                  <input type="text" id="email" name="email" class="form-control" required value="{{ email }}">
+                </div>
+                <div class="form-group">
+                  <label for="comments">Radiology Comments:</label>
+                  <textarea id="comments" name="comments" class="form-control" rows="4" required>{{ comments }}</textarea>
+                </div>
+                <input type="hidden" name="label" value="{{ label }}">
+                <input type="hidden" name="probability" value="{{ probability }}">
+                <input type="hidden" name="image_path" value="{{ image_path }}">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
             </div>
-            <div class="form-group">
-              <label for="last_name">Patient Last Name:</label>
-              <input type="text" id="last_name" name="last_name" class="form-control" required value="{{ last_name }}">
-            </div>
-            <div class="form-group">
-              <label for="email">Patient Email:</label>
-              <input type="text" id="email" name="email" class="form-control" required value="{{ email }}">
-            </div>
-            <div class="form-group">
-              <label for="comments">Radiology Comments:</label>
-              <textarea id="comments" name="comments" class="form-control" rows="4" required>{{ comments }}</textarea>
-            </div>
-            <input type="hidden" name="label" value="{{ label }}">
-            <input type="hidden" name="probability" value="{{ probability }}">
-            <input type="hidden" name="image_path" value="{{ image_path }}">
-            <button type="submit" class="btn btn-primary">Save</button>
-          </form>
+          </div>
         </td>
       </tr>
     </table>
