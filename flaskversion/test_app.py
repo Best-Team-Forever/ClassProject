@@ -13,6 +13,7 @@ from pydicom.uid import ExplicitVRLittleEndian
 
 from app import app, preprocess_image, classify_image, generate_ids, PATIENT_IMAGES, \
     define_image_directory  # Adjust imports as needed
+from email_service import EmailService
 
 
 def create_dummy_dicom(directory):
@@ -165,7 +166,7 @@ class FlaskAppTestCase(TestCase):
             response = c.post('/save_patient_info', data={
                 'first_name': first_name,
                 'last_name': last_name,
-                'email' : email,
+                'email': email,
                 'comments': comments,
                 'label': label,
                 'probability': probability,
@@ -173,7 +174,8 @@ class FlaskAppTestCase(TestCase):
             })
             self.assertEqual(response.status_code, 302)  # Redirect status code
 
-            app.database.save_patient_record.assert_called_once_with(String(), first_name, last_name, email, comments, label,
+            app.database.save_patient_record.assert_called_once_with(String(), first_name, last_name, email, comments,
+                                                                     label,
                                                                      probability, String())
 
     @unittest.skip
@@ -320,6 +322,11 @@ class FlaskAppTestCase(TestCase):
         label, probability = classify_image(image, model)
         self.assertIsInstance(label, str)
         self.assertTrue(isinstance(probability, (float, np.float32, np.float64)))
+
+    @unittest.skip
+    def test_send_email(self):
+        email_service = EmailService()
+        email_service.send_email('alejandro855@gmail.com')
 
 
 if __name__ == '__main__':
