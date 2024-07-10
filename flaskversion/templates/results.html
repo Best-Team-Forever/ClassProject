@@ -78,7 +78,7 @@
           <td>{{ entry.comments }}</td>
           <td>{{ entry.email }}</td>
           <td>
-            <a class="btn" href="{{ url_for('send_email', patient_id=entry.patient_id) }}">Email to Patient</a>
+            <a class="btn btn-primary" href="{{ url_for('send_email', patient_id=entry.patient_id) }}">Email to Patient</a>
           </td>
         </tr>
         {% endfor %}

@@ -61,9 +61,13 @@
     <table width="100%">
       <tr>
         <td id="leftcol" style="width:50%;">
-          <p>Label: {{ label }}</p>
-          <p>Risk Score: {{ probability }}%</p>
-          <img src="/{{ image_path }}" alt="Annotated Image" width="100%" class="img-fluid mt-3" alt="Image processing, check back later.">
+          <div class="card">
+            <div class="card-body">
+              <p>Label: {{ label }}</p>
+              <p>Risk Score: {{ probability }}%</p>
+              <img src="/{{ image_path }}" alt="Annotated Image" width="100%" class="img-fluid mt-3" alt="Image processing, check back later.">
+            </div>
+          </div>
         </td>
         <td id="rightcol">
           <div class="card">
