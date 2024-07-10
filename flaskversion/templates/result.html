@@ -58,9 +58,9 @@
 
   <div class="container content">
     <h1 class="mt-4">Classification Result</h1>
-    <table width="100%">
+    <table width="100%" class="table">
       <tr>
-        <td id="leftcol" style="width:50%;">
+        <td id="leftcol" class="align-top" style="width:50%;">
           <div class="card">
             <div class="card-body">
               <p>Label: {{ label }}</p>
@@ -69,7 +69,7 @@
             </div>
           </div>
         </td>
-        <td id="rightcol">
+        <td id="rightcol" class="align-top">
           <div class="card">
             <div class="card-body">
               <form action="/save_patient_info" method="post" class="mt-3">
