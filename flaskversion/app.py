@@ -77,7 +77,8 @@ def upload_file():
             image_rgb = cv2.cvtColor(dicom.pixel_array.astype(np.uint8), cv2.COLOR_GRAY2RGB)
             annotated_image_path = os.path.join(annotated_image_directory, 'annotated_image.png')
             print(f"Annotated image path: {annotated_image_path}")
-            cv2.imwrite(annotated_image_path, image_rgb)
+            image_saved = cv2.imwrite(annotated_image_path, image_rgb)
+            print(f"Annotated image saved: {image_saved}")
 
             # Append cache buster to the image path
             image_path = f'{annotated_image_path}?{uuid.uuid4()}'
