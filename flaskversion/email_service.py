@@ -19,13 +19,13 @@ class EmailService:
         message.set_content(content)
         return message
 
-    def send_email(self, receiver, probability):
+    def send_email(self, first_name, last_name, receiver, probability):
         with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
             server.login("deepscan.patient.info@gmail.com", password)
 
             subject = 'Your analysis results'
             sender_name = 'DeepScan'
-            content = f'Your risk score is: {round(probability, 2)}%'
+            content = f'Hi {first_name} {last_name}, \nYour risk score is: {round(probability, 2)}%'
 
             message = self.build_message(subject, sender_name, receiver, content)
             server.send_message(message)
