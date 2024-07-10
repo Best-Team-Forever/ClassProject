@@ -45,6 +45,10 @@ class Database(object):
         return entries
 
     def read_record(self, patient_id):
+
+        if patient_id is None or patient_id == '':
+            raise ValueError('Patient ID cannot be empty')
+
         print(f"CSV file path for specific patient: {self.database_path}")
         if os.path.exists(self.database_path):
             with open(self.database_path, mode='r') as file:

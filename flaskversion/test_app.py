@@ -15,6 +15,7 @@ from pydicom.uid import ExplicitVRLittleEndian
 from app import app, preprocess_image, classify_image, generate_ids, PATIENT_IMAGES, \
     define_image_directory  # Adjust imports as needed
 from database import Database
+from email_service import EmailService
 
 
 def create_dummy_dicom(directory):
@@ -359,6 +360,7 @@ class FlaskAppTestCase(TestCase):
         self.assertIsInstance(label, str)
         self.assertTrue(isinstance(probability, (float, np.float32, np.float64)))
 
+    # Test No. 20
     def test_database_read_all_records(self):
         directory = app.config['PATIENT_DATA_FOLDER']
         file_name = app.config['PATIENT_DATA_FILE']
@@ -396,6 +398,7 @@ class FlaskAppTestCase(TestCase):
         self.assertEqual(patients[0]['patient_id'], entries[0]['patient_id'])
         self.assertEqual(patients[1]['patient_id'], entries[1]['patient_id'])
 
+    # Test No. 21
     def test_database_creates_directory(self):
         directory = 'test_database_directory'
         file_name = app.config['PATIENT_DATA_FILE']
@@ -407,6 +410,7 @@ class FlaskAppTestCase(TestCase):
         self.assertTrue(os.path.exists(directory))
         shutil.rmtree(directory)
 
+    # Test No. 22
     def test_database_directory_cannot_be_empty(self):
         directory = ''
         file_name = app.config['PATIENT_DATA_FILE']
@@ -418,6 +422,7 @@ class FlaskAppTestCase(TestCase):
             return
         self.fail("Empty directory accepted by Database")
 
+    # Test No. 23
     def test_database_directory_cannot_be_none(self):
         directory = None
         file_name = app.config['PATIENT_DATA_FILE']
@@ -429,6 +434,7 @@ class FlaskAppTestCase(TestCase):
             return
         self.fail("None directory accepted by Database")
 
+    # Test No. 24
     def test_database_filename_cannot_be_empty(self):
         directory = app.config['PATIENT_DATA_FOLDER']
         file_name = ''
@@ -440,6 +446,7 @@ class FlaskAppTestCase(TestCase):
             return
         self.fail("Empty file name accepted by Database")
 
+    # Test No. 25
     def test_database_filename_cannot_be_none(self):
         directory = app.config['PATIENT_DATA_FOLDER']
         file_name = None
@@ -451,6 +458,7 @@ class FlaskAppTestCase(TestCase):
             return
         self.fail("None file accepted by Database")
 
+    # Test No. 26
     def test_database_read_record(self):
         directory = app.config['PATIENT_DATA_FOLDER']
         file_name = app.config['PATIENT_DATA_FILE']
@@ -483,6 +491,7 @@ class FlaskAppTestCase(TestCase):
         self.assertEqual(comments, patient['comments'])
         self.assertEqual(email, patient['email'])
 
+    # Test No. 27
     def test_database_read_record_when_record_does_not_exist(self):
         directory = app.config['PATIENT_DATA_FOLDER']
         file_name = app.config['PATIENT_DATA_FILE']
@@ -496,6 +505,60 @@ class FlaskAppTestCase(TestCase):
             print(ex)
             return
         self.fail("Database returned successfully when reading non existing record")
+
+    # Test No. 28
+    def test_database_read_record_when_patient_id_is_empty(self):
+        directory = app.config['PATIENT_DATA_FOLDER']
+        file_name = app.config['PATIENT_DATA_FILE']
+        patient_id = ''
+
+        database = Database(directory, file_name)
+
+        try:
+            database.read_record(patient_id)
+        except ValueError as ve:
+            self.assertEqual('Patient ID cannot be empty', str(ve))
+            print(ve)
+            return
+        self.fail("Database returned successfully when getting empty patient id")
+
+    # Test No. 29
+    def test_build_email_message(self):
+        email_service = EmailService()
+
+        subject = 'subject'
+        sender = 'sender'
+        receiver = 'receiver'
+        content = 'content'
+
+        email_message = email_service.build_message(subject, sender, receiver, content)
+
+        self.assertEqual(subject, email_message['Subject'])
+        self.assertEqual(sender, email_message['From'])
+        self.assertEqual(receiver, email_message['To'])
+
+    def test_send_email(self):
+
+        app.database = Mock()
+
+        patient_id = '1234'
+        label = 'ABNORMAL'
+        probability = '0.85'
+        image_path = 'test_image.png'
+        first_name = 'John'
+        last_name = 'Doe'
+        email = 'john@doe.com'
+        comments = 'comment'
+
+        app.database.read_record = Mock(
+            return_value=[label, probability, image_path, first_name, last_name, comments, email])
+        app.email_service = Mock()
+        app.email_service.send_email = Mock()
+
+        response = self.client.get(f'/send_email/{patient_id}')
+        self.assertEqual(200, response.status_code)
+        app.database.read_record.assert_called_once_with(patient_id)
+        app.email_service.send_email.assert_called_once_with(email, float(probability))
 
 
 if __name__ == '__main__':
