@@ -166,7 +166,7 @@ In your repo's README, list your team name and roster with roles
 |-----------|-------------|
 | Pair or Mob Programming |    |
 | Test-Driven Development: At least 1 BDD/A-TDD test |    |
-| Test-Driven Development: At least 30 micro-scale unit tests |    |
+| Test-Driven Development: At least 30 micro-scale unit tests | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py |
 | Continuous Integration |    |
 
 ## Continuous Delivery
@@ -183,8 +183,8 @@ In your repo's README, list your team name and roster with roles
 |Task| Our Submission|
 |-----------|-------------|
 | All team members participate |    |
-| Identify improvement action |    |
-| Make a concrete plan for implementing the change |    |
+| Identify improvement action | https://docs.google.com/document/d/19mWe4r4ynbb7owMXA7gVZKby_lpcBrfjoZOFmOyejKw/edit?usp=sharing |
+| Make a concrete plan for implementing the change | https://docs.google.com/document/d/19mWe4r4ynbb7owMXA7gVZKby_lpcBrfjoZOFmOyejKw/edit?usp=sharing |
 
 ## Product Backlog Refinement
 |Task| Our Submission|
