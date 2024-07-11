@@ -1,0 +1,71 @@
+2024-07-11T01:22:01.272744383Z [34m╭────────────[34m[30m[44m git repo clone [0m[0m[34m───────────╼[0m
+2024-07-11T01:22:01.272781308Z [34m│[0m [34m › fetching app source code[0m
+2024-07-11T01:22:01.272784492Z [34m│[0m => Selecting branch "main"
+2024-07-11T01:22:58.432892009Z [34m│[0m => Checking out commit "9c26aafc0d0ca9ed31ab9b3e1943147b1f54cf24"
+2024-07-11T01:22:58.992935683Z [34m│[0m 
+2024-07-11T01:22:58.994418167Z [34m│[0m [32m ✔ cloned repo to [35m/workspace[0m[0m
+2024-07-11T01:22:59.009115650Z [34m╰────────────────────────────────────────╼[0m
+2024-07-11T01:22:59.009130317Z 
+2024-07-11T01:22:59.035618600Z [34m › applying source directory [35mflaskversion[0m[0m
+2024-07-11T01:22:59.038428077Z [32m ✔ using workspace root [35m/workspace/flaskversion[0m[0m
+2024-07-11T01:22:59.038439989Z 
+2024-07-11T01:22:59.186660095Z [34m╭────────────[34m[30m[44m buildpack detection [0m[0m[34m───────────╼[0m
+2024-07-11T01:22:59.198954841Z [34m│[0m [34m › using Ubuntu 22.04 stack[0m
+2024-07-11T01:22:59.437847189Z [34m│[0m Detected the following buildpacks suitable to build your app:
+2024-07-11T01:22:59.438082778Z [34m│[0m 
+2024-07-11T01:22:59.438096297Z [34m│[0m    digitalocean/python-appdetect  v0.0.3    
+2024-07-11T01:22:59.438099728Z [34m│[0m    heroku/python                  v4.249.4  (Python)
+2024-07-11T01:22:59.438101930Z [34m│[0m    digitalocean/procfile          v0.0.4    (Procfile)
+2024-07-11T01:22:59.438104813Z [34m│[0m    digitalocean/custom            v0.1.2    (Custom Build Command)
+2024-07-11T01:22:59.438107794Z [34m│[0m 
+2024-07-11T01:22:59.438111460Z [34m│[0m For documentation on the buildpacks used to build your app, please see:
+2024-07-11T01:22:59.438114328Z [34m│[0m 
+2024-07-11T01:22:59.438117837Z [34m│[0m    Python  v4.249.4  https://do.co/apps-buildpack-python
+2024-07-11T01:22:59.440385801Z [34m╰─────────────────────────────────────────────╼[0m
+2024-07-11T01:22:59.440392178Z 
+2024-07-11T01:22:59.442789672Z [34m╭────────────[34m[30m[44m build caching [0m[0m[34m───────────╼[0m
+2024-07-11T01:22:59.444851892Z [34m│[0m [34m › checking for cache from a previous build[0m
+2024-07-11T01:22:59.780011610Z [34m│[0m Restoring metadata for "heroku/python:shim" from cache
+2024-07-11T01:22:59.992194588Z [34m│[0m Restoring data for "heroku/python:shim" from cache
+2024-07-11T01:23:32.563478734Z [34m╰───────────────────────────────────────╼[0m
+2024-07-11T01:23:32.563512213Z 
+2024-07-11T01:23:32.565997907Z [34m╭────────────[34m[30m[44m app build [0m[0m[34m───────────╼[0m
+2024-07-11T01:23:43.189227278Z [34m│[0m -----> No Python version was specified. Using the same version as the last build: python-3.12.3
+2024-07-11T01:23:43.189256510Z [34m│[0m        To use a different version, see: https://devcenter.heroku.com/articles/python-runtimes
+2024-07-11T01:23:43.623336622Z [34m│[0m -----> No change in requirements detected, installing from cache
+2024-07-11T01:23:43.623365588Z [34m│[0m -----> Using cached install of python-3.12.3
+2024-07-11T01:23:43.628800287Z [34m│[0m -----> Installing pip 24.0, setuptools 69.2.0 and wheel 0.43.0
+2024-07-11T01:23:45.799026316Z [34m│[0m -----> Installing SQLite3
+2024-07-11T01:23:51.756977102Z [34m│[0m -----> Installing requirements with pip
+2024-07-11T01:23:58.964958937Z [34m╰───────────────────────────────────╼[0m
+2024-07-11T01:23:58.964987271Z 
+2024-07-11T01:23:58.972690653Z [34m╭────────────[34m[30m[44m app upload [0m[0m[34m───────────╼[0m
+2024-07-11T01:23:58.983738668Z [34m│[0m [34m › uploading app container image to DOCR[0m
+2024-07-11T01:23:59.217609752Z [34m│[0m Reusing layers from image <registry-uri-0>
+2024-07-11T01:23:59.468629481Z [34m│[0m Reusing layer 'heroku/python:profile'
+2024-07-11T01:24:43.195886293Z [34m│[0m Adding 1/1 app layer(s)
+2024-07-11T01:24:43.214141860Z [34m│[0m Reusing layer 'launcher'
+2024-07-11T01:24:43.214783171Z [34m│[0m Reusing layer 'config'
+2024-07-11T01:24:43.216292808Z [34m│[0m Adding label 'io.buildpacks.lifecycle.metadata'
+2024-07-11T01:24:43.216630583Z [34m│[0m Adding label 'io.buildpacks.build.metadata'
+2024-07-11T01:24:43.216635092Z [34m│[0m Adding label 'io.buildpacks.project.metadata'
+2024-07-11T01:24:43.217351750Z [34m│[0m Saving <image-1>...
+2024-07-11T01:25:22.685006895Z [34m│[0m *** Images (sha256:678f7142b9f62f8ea9315ca9c75a40fe87676493b3d5df3757de914363d2219a):
+2024-07-11T01:25:22.685042121Z [34m│[0m       <image-2>
+2024-07-11T01:25:36.181735360Z [34m│[0m Adding cache layer 'heroku/python:shim'
+2024-07-11T01:26:39.324468288Z [34m│[0m [32m ✔ uploaded app image to DOCR[0m
+2024-07-11T01:26:39.326527646Z [34m╰────────────────────────────────────╼[0m
+2024-07-11T01:26:39.326545227Z 
+2024-07-11T01:26:39.337524510Z [32m ✔ [0m[30m[42m build complete [0m[0m
+2024-07-11T01:26:39.337536021Z 
+2024-07-11T01:27:36.769760213Z [2024-07-11 01:27:36 +0000] [1] [INFO] Starting gunicorn 20.1.0
+2024-07-11T01:27:36.771902184Z [2024-07-11 01:27:36 +0000] [1] [INFO] Listening at: http://0.0.0.0:8080 (1)
+2024-07-11T01:27:36.772100318Z [2024-07-11 01:27:36 +0000] [1] [INFO] Using worker: sync
+2024-07-11T01:27:36.825322707Z [2024-07-11 01:27:36 +0000] [17] [INFO] Booting worker with pid: 17
+2024-07-11T01:27:42.266387137Z 2024-07-11 01:27:42.265770: I external/local_tsl/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.
+2024-07-11T01:27:42.275689396Z 2024-07-11 01:27:42.274987: I external/local_tsl/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.
+2024-07-11T01:27:42.317134341Z 2024-07-11 01:27:42.315735: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:479] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-07-11T01:27:42.401132732Z 2024-07-11 01:27:42.400811: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:10575] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-07-11T01:27:42.401406810Z 2024-07-11 01:27:42.401241: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1442] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-07-11T01:27:42.451810902Z 2024-07-11 01:27:42.451448: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-07-11T01:27:42.451840028Z To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
