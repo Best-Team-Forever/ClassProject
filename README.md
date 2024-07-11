@@ -175,7 +175,7 @@ In your repo's README, list your team name and roster with roles
 ## Continuous Delivery
 |Task| Our Submission|
 |-----------|-------------|
-| Implement and provide evidence of a working CD system |    |
+| Implement and provide evidence of a working CD system | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/final_CD_logs.txt |
 
 ## Sprint Retrospective 
 |Task| Our Submission|
