@@ -556,7 +556,7 @@ class FlaskAppTestCase(TestCase):
         app.email_service = Mock()
         app.email_service.send_email = Mock()
 
-        response = self.client.get(f'/send_email/{patient_id}')
+        response = self.client.post(f'/send_email/{patient_id}')
         self.assertEqual(200, response.status_code)
         app.database.read_record.assert_called_once_with(patient_id)
         app.email_service.send_email.assert_called_once_with(first_name, last_name, email, float(probability))
