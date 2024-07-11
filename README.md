@@ -164,10 +164,11 @@ In your repo's README, list your team name and roster with roles
 ## Advanced Development Practices
 |Task| Our Submission|
 |-----------|-------------|
-| Pair or Mob Programming |    |
+| Pair or Mob Programming | New mob programming session https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/mob%20programming.jpg |
 | Test-Driven Development: At least 1 BDD/A-TDD test |    |
 | Test-Driven Development: At least 30 micro-scale unit tests | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py |
-| Continuous Integration |    |
+| Continuous Integration | We only work in the 'main' branch and other branches are no long-lived code branaches.
+https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/app.py |
 
 ## Continuous Delivery
 |Task| Our Submission|
@@ -182,11 +183,11 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Retrospective 
 |Task| Our Submission|
 |-----------|-------------|
-| All team members participate |    |
+| All team members participate | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/retrospective.jpg   |
 | Identify improvement action | https://docs.google.com/document/d/19mWe4r4ynbb7owMXA7gVZKby_lpcBrfjoZOFmOyejKw/edit?usp=sharing |
 | Make a concrete plan for implementing the change | https://docs.google.com/document/d/19mWe4r4ynbb7owMXA7gVZKby_lpcBrfjoZOFmOyejKw/edit?usp=sharing |
 
 ## Product Backlog Refinement
 |Task| Our Submission|
 |-----------|-------------|
-| Ensure all PBIs are true user stories |    |
+| Ensure all PBIs are true user stories | All backlog items have been reviewed by the team for stakeholder value. https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog|
