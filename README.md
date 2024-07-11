@@ -126,18 +126,21 @@ In your repo's README, list your team name and roster with roles
 | Implement and provide evidence of a working CD system |https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/cicd_logs.txt |
 |Link to test file:  | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py |
 | Link to CI/CD pipeline history | https://github.com/Best-Team-Forever/ClassProject/actions | 
+
 # Sprint Review
 |Task| Our Submission|
 |-----------|------------------------------------------------|
 | Demonstrate working software on public system | https://plankton-app-bxgyc.ondigitalocean.app/ |
 | Involve at least one stakeholder and gather feedback | (Primary Stakeholder) Dr. Brooke Breen -  <br> (Secondary Stakeholder) John Kirk - Medical Records Expert|
 | Conduct the review | We conducted our main sprint review with our primary stakeholder - Dr. Brooke Breen, MD, radiologist, on Sunday July 8 due to her availability, which is a day earlier than our sprint ended. In this review we presented our product demo, shared our vision of the product, and got valuable feedback on our MVP. We incorporated this feedback to improve our product during this current sprint and adjusted our product backlog for our next sprint. Video link : https://drive.google.com/file/d/1uM3t93qnhXlpFc4dNi3gK71OR89WCR3i/view?usp=share_link We got additional expert feedback from John Kirk, medical records specialist, during this sprint on how to best incorporate patient information and data. Video link : https://harvard.zoom.us/rec/share/e8z7tyoL63Zr76KI2e2qx7JXIPyMHQneaV4ZbHGmdCVYS4XGa9eb4NNxWaoSmdIt.aZC7hdxfu193w83m |
+
 # Sprint Retrospective
 |Task|Our Submission|
 |-----------|-------------|
 | All team members participate | All five members in our team participated via zoom in the morning of 8th July. |
 | Identify improvement action | https://docs.google.com/document/d/1qVi3pq895ZWbWFqicddQ9hQjLFikdwf_xgT47D0uiKQ/edit?usp=sharing |
 | Make a concrete plan for implementing the change | https://docs.google.com/document/d/1qVi3pq895ZWbWFqicddQ9hQjLFikdwf_xgT47D0uiKQ/edit?usp=sharing |
+
 # Product Backlog Refinement
 |Task|Our Submission|
 |-----------|-------------|
@@ -167,8 +170,7 @@ In your repo's README, list your team name and roster with roles
 | Pair or Mob Programming | New mob programming session https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/mob%20programming.jpg |
 | Test-Driven Development: At least 1 BDD/A-TDD test |    |
 | Test-Driven Development: At least 30 micro-scale unit tests | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py <br> Pass evidence: https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/30%20unit%20tests%20pass%20evidence.png |
-| Continuous Integration | We only work in the 'main' branch and other branches are no long-lived code branaches.
-https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/app.py |
+| Continuous Integration | We only work in the 'main' branch and other branches are no long-lived code branaches.<br>https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/app.py |
 
 ## Continuous Delivery
 |Task| Our Submission|
