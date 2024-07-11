@@ -166,7 +166,7 @@ In your repo's README, list your team name and roster with roles
 |-----------|-------------|
 | Pair or Mob Programming | New mob programming session https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/mob%20programming.jpg |
 | Test-Driven Development: At least 1 BDD/A-TDD test |    |
-| Test-Driven Development: At least 30 micro-scale unit tests | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py |
+| Test-Driven Development: At least 30 micro-scale unit tests | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py <br> Pass evidence: https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/30%20unit%20tests%20pass%20evidence.png |
 | Continuous Integration | We only work in the 'main' branch and other branches are no long-lived code branaches.
 https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/app.py |
 
@@ -174,11 +174,6 @@ https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/app.py 
 |Task| Our Submission|
 |-----------|-------------|
 | Implement and provide evidence of a working CD system |    |
-
-## In-Class Sprint Review
-|Task| Our Submission|
-|-----------|-------------|
-| in class |    |
 
 ## Sprint Retrospective 
 |Task| Our Submission|
