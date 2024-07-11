@@ -1,5 +1,6 @@
 import csv
 import os.path
+import shutil
 
 
 class Database(object):
@@ -11,6 +12,7 @@ class Database(object):
         if file_name is None or file_name == '':
             raise ValueError('File name cannot be empty')
 
+        self.directory = directory
         self.database_path = os.path.join(directory, file_name)
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -58,3 +60,6 @@ class Database(object):
                         # label, probability, image_path, first_name, last_name, comments, email
                         return row[5], row[6], row[7], row[1], row[2], row[4], row[3]
         raise Exception("Record not found")
+
+    def close(self):
+        shutil.rmtree(self.directory, ignore_errors=True)
