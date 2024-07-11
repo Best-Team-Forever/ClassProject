@@ -151,8 +151,8 @@ In your repo's README, list your team name and roster with roles
 ## Sprint Planning
 |Task| Our Submission|
 |-----------|-------------|
-| Document sprint forecast and rationale in README |    |
-| Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Backlog.png |
+| Document sprint forecast and rationale in README | Sprint forecast: We forecasted 10 user story points for this sprint based on yesterday’s weather. Rationale: The first item on our backlog is our Sprint Retrospective. We prioritized and pulled stories to our Sprint 3 based on the value to the stakeholders, technical dependencies, and feasibility. Our main stakeholder, Dr. Brooke Breen, the radiologist wants a more accurate model with less false positives, hence, improving the model is high priority and next on our product backlog. Molly, the patient, our second stakeholder, wants access to her report as soon as it’s available, this is a new feature for our product and next on our product backlog. Lastly, we have a spike for researching labeling diagnosis, which is an important requirement for our stakeholder. We plan to investigate the best way to implement this and gather new knowledge to make it possible. |
+| Pull appropriate stories into sprint backlog | https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/Sprint2Backlog.png <br> https://docs.google.com/document/d/1m29oDQ9R2dQ7JdMp0I4lC672DsF8-kEV6AIVPxGVeDY/edit?usp=sharing |
 | Ensure stories are right-sized | Based on our estimating activity we believe our user stories are estimated correctly at [1, 3, 5, 1] and are right sized   |
 | Decompose stories into tasks | https://docs.google.com/document/d/1m29oDQ9R2dQ7JdMp0I4lC672DsF8-kEV6AIVPxGVeDY/edit?usp=sharing <br> Jira: https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?cloudId=1234c6a6-c8dc-4879-bd64-e26c3505ca96 |
 | Set up a kanban board for sprint backlog | https://best-team-forever.atlassian.net/jira/software/projects/SCRUM/boards/1 |
@@ -168,7 +168,7 @@ In your repo's README, list your team name and roster with roles
 |Task| Our Submission|
 |-----------|-------------|
 | Pair or Mob Programming | New mob programming session https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/mob%20programming.jpg |
-| Test-Driven Development: At least 1 BDD/A-TDD test |    |
+| Test-Driven Development: At least 1 BDD/A-TDD test | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/access_to_personal_medical_data.feature |
 | Test-Driven Development: At least 30 micro-scale unit tests | https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/test_app.py <br> Pass evidence: https://github.com/Best-Team-Forever/ClassProject/blob/main/doc/30%20unit%20tests%20pass%20evidence.png |
 | Continuous Integration | We only work in the 'main' branch and other branches are no long-lived code branaches.<br>https://github.com/Best-Team-Forever/ClassProject/blob/main/flaskversion/app.py |
 
